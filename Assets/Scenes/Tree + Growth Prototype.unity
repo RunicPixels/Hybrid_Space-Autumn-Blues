@@ -1311,6 +1311,31 @@ Prefab:
       propertyPath: sequence
       value: 
       objectReference: {fileID: 578042167}
+    - target: {fileID: 198835000230229276, guid: 91ec45fe6d552d64387c9ea5d9fc4d14,
+        type: 2}
+      propertyPath: simulationSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 198835000230229276, guid: 91ec45fe6d552d64387c9ea5d9fc4d14,
+        type: 2}
+      propertyPath: randomSeed
+      value: 1651109345
+      objectReference: {fileID: 0}
+    - target: {fileID: 198835000230229276, guid: 91ec45fe6d552d64387c9ea5d9fc4d14,
+        type: 2}
+      propertyPath: TrailModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 199228764910908836, guid: 91ec45fe6d552d64387c9ea5d9fc4d14,
+        type: 2}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f2ea145c63353784985576f08398a815, type: 2}
+    - target: {fileID: 198835000230229276, guid: 91ec45fe6d552d64387c9ea5d9fc4d14,
+        type: 2}
+      propertyPath: TrailModule.worldSpace
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91ec45fe6d552d64387c9ea5d9fc4d14, type: 2}
   m_IsPrefabParent: 0
