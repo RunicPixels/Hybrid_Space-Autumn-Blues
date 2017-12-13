@@ -19,10 +19,10 @@ public class ParticleCollision : MonoBehaviour {
 
     private void OnTriggerEnter2D( Collider2D collision ) {
         var main = system.main;
-        Debug.Log("yes");
+        //Debug.Log("yes");
         if (collision.tag == "Hand") {
             sequence.growth = true;
-            Debug.Log("yes");
+            //Debug.Log("yes");
             main.startColor = activeColor;
         }
     }
