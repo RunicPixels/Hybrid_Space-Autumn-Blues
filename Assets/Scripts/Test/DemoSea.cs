@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DemoTree : Sequence {
+public class DemoSea : Sequence {
     public Sprite[] animationFrames; // Animation Frames that looped through in a linear fashion.
     public Vector3 startSize = new Vector3(1, 1, 1); // Scale to start your sprite
     public Vector3 endSize = new Vector3(3, 5, 3); // Scale of your sprite at the end of the sequence.
@@ -14,6 +14,8 @@ public class DemoTree : Sequence {
         renderer = GetComponent<SpriteRenderer>(); // The Sprite Renderer that visualises the sprite / animation
         base.Start();
     }
+
+
 
     // Update is called once per frame
     void Update() {
