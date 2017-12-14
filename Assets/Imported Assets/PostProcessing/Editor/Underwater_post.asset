@@ -69,10 +69,10 @@ MonoBehaviour:
       screenEdgeMask:
         intensity: 0.03
   depthOfField:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       focusDistance: 0.53
-      aperture: 26.8
+      aperture: 29.9
       focalLength: 49
       useCameraFov: 0
       kernelSize: 1
@@ -120,7 +120,7 @@ MonoBehaviour:
         neutralWhiteLevel: 5.3
         neutralWhiteClip: 10
       basic:
-        postExposure: 0
+        postExposure: 1.32
         temperature: 0
         tint: 0
         hueShift: 0
@@ -134,8 +134,8 @@ MonoBehaviour:
       colorWheels:
         mode: 1
         log:
-          slope: {r: 0.6194979, g: 0.7299137, b: 1, a: 0}
-          power: {r: 0.55321884, g: 0.6189691, b: 1, a: 0}
+          slope: {r: 1, g: 0.873418, b: 0.43791938, a: 0}
+          power: {r: 0.7154062, g: 0.8938455, b: 1, a: 0}
           offset: {r: 0.83573335, g: 0.97009623, b: 1, a: 0}
         linear:
           lift: {r: 1, g: 0.96900624, b: 0.9552596, a: 0}
