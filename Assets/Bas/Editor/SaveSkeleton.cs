@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 
-[CustomEditor(typeof(Test))]
+//[CustomEditor(typeof(Test))]
 public class SaveSkeleton : Editor {
 
     Vector3 addVec;
