@@ -6,16 +6,15 @@ public class MovementTrail : MonoBehaviour
 {
 
     public int sections, faultMargin;
-    public float sectionWidth, directionParticlesSpeed;
+    public float sectionWidth, treeGrowth;
     public GameObject trailSectionPrefab;
-    public Tree tree;
+    public DemoTree tree;
 
     private TrailSection[] trailSections;
     private Vector2[] points;
     private int currentTrailNumber = 1;
     private Transform directionParticles;
-    private float particlesTimer = 3;
-    private bool movingParticles = false;
+    private float treeGrowthTimer = 0;
 
     // Use this for initialization
     void Start()
@@ -85,30 +84,15 @@ public class MovementTrail : MonoBehaviour
     
     private void Update()
     {
-        /*
-        if (particlesTimer <= 0 && !movingParticles)
+        if (treeGrowthTimer <= 0)
         {
-            movingParticles = true;
-
-            StartCoroutine(MoveParticles());
+            tree.growth = false;
         }
         else
-            particlesTimer -= Time.deltaTime;*/
-    }
-
-    private IEnumerator MoveParticles()
-    {
-        directionParticles.gameObject.SetActive(true);
-
-        for (int i = 0; i < points.Length; i++)
         {
-            directionParticles.transform.localPosition = points[i];
-            yield return new WaitForSeconds(directionParticlesSpeed / sections);
+            tree.growth = true;
+            treeGrowthTimer -= Time.deltaTime;
         }
-
-        directionParticles.gameObject.SetActive(false);
-        particlesTimer = 3;
-        movingParticles = false;
     }
 
     /* Check if correct section is entered */
@@ -132,7 +116,7 @@ public class MovementTrail : MonoBehaviour
     {
         if (trailSections[trailSections.Length - 1].highlighted)
         {
-            tree.Grow();
+            treeGrowthTimer = treeGrowth;
             Reset();
         }
     }
