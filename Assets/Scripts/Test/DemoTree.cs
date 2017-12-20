@@ -32,7 +32,7 @@ public class DemoTree : Sequence {
             renderer.sprite = animationFrames[Mathf.FloorToInt(animationFrames.Length * distCovered)]; // Change sprite based on point in sequence. (I.E. With 5 sprites it changes to the next one every 1 / 5 = 0.2 so it will change sprites at 0.2 , 0.4, 0.6, 0.8 etc in a linear fashion.
 
         }
-        camera.GetComponent<Camera>().fieldOfView = 30 + (distCovered * 35);
+        camera.GetComponent<Camera>().fieldOfView = 20 + (distCovered * 35);
         float fracJourney = distCovered; // Current Point in the sequence.
         transform.localScale = Vector3.Lerp(startSize, endSize, fracJourney); // Change Size
     }
