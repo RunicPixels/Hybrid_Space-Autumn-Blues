@@ -20,7 +20,7 @@ public class BodyCollisionEffects : MonoBehaviour {
     private void OnTriggerEnter2D( Collider2D collision ) {
         if(collision.tag == "Hand" && tag == "Hand") {
             Debug.Log("Collision between hands.");
-            shape.radius = 20;
+            transform.localScale = new Vector3(5f, 5f, 5f);
         }
     }
 }

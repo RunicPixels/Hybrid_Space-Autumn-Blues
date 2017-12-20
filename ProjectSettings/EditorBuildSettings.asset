@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/autumn.unity
+    guid: 1bf796d0d18e4448bbc2b669bcf64f85
+  - enabled: 1
     path: Assets/Kinect Test/KinectView/MainScene.unity
     guid: 711d02b625d77694c9b05755e241e139
   - enabled: 1

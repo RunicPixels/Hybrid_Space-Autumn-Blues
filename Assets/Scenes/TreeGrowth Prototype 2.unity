@@ -344,7 +344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sections: 100
   faultMargin: 10
-  sectionWidth: 3
+  sectionWidth: 5
   directionParticlesSpeed: 3
   trailSectionPrefab: {fileID: 1906753039883338, guid: 32e68654d9e3ac049ad0a3b90fd548d7,
     type: 2}
@@ -464,8 +464,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1168067509}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -4.5, z: -1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.1, y: 0.2, z: -1}
+  m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 1567746796}
   m_RootOrder: 0
@@ -504,7 +504,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 83bba9e060a1d446b9430dce4ff1dec5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 517666d072de54d91bffda0d0acec773, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -542,14 +542,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textures:
-  - {fileID: 21300000, guid: 95932b6fb60de4d27ba5a734ca594d42, type: 3}
-  - {fileID: 21300000, guid: ec5419c0ad7924e8eb28b1df7e2da397, type: 3}
-  - {fileID: 21300000, guid: 4d2948d3ecbda4104963e79eeb593730, type: 3}
-  - {fileID: 21300000, guid: 55b52fedeea3a4ad8b5703dd10a4c143, type: 3}
-  - {fileID: 21300000, guid: 7856eb810e78e42ceb743394186678a4, type: 3}
-  - {fileID: 21300000, guid: fc0beaec33b494367856c67e2abe279b, type: 3}
-  - {fileID: 21300000, guid: a06b7a6c248794d45afb9c24db031351, type: 3}
-  - {fileID: 21300000, guid: 8e745998652ab461b89aa80e01236858, type: 3}
+  - {fileID: 21300000, guid: 25b7eca6ebd8f43d9b8b80bf854a160e, type: 3}
+  - {fileID: 21300000, guid: e35d301b57656460da74512a0997d00f, type: 3}
+  - {fileID: 21300000, guid: 3890a24d7036e43d0b6ff89cc1ee2685, type: 3}
+  - {fileID: 21300000, guid: 4ef873cbde9874be89295e139791b263, type: 3}
+  - {fileID: 21300000, guid: 7bff2d4ae51bf442db2f5c0ce061dbc1, type: 3}
+  - {fileID: 21300000, guid: 8891dc365eeed4d43856f527b7c83f42, type: 3}
+  - {fileID: 21300000, guid: 5d007bf1b2b284cf8bccdfa3c13b94f4, type: 3}
+  - {fileID: 21300000, guid: 60c65dca8a707499aa4131f49618aa5c, type: 3}
 --- !u!4 &1567746796
 Transform:
   m_ObjectHideFlags: 0
