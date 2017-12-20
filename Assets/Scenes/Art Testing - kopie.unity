@@ -798,8 +798,10 @@ GameObject:
   m_Component:
   - component: {fileID: 896569330}
   - component: {fileID: 896569329}
+  - component: {fileID: 896569331}
+  - component: {fileID: 896569332}
   m_Layer: 0
-  m_Name: New Sprite
+  m_Name: MountainSequence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -839,15 +841,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 58019c15f20f8834391980c80b153511, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
 --- !u!4 &896569330
 Transform:
@@ -862,6 +864,48 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &896569331
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 896569328}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: dd72c0ddcb5e1844899ee2e22dfef1fa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &896569332
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 896569328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843c6e951876f2747ba6314ee03e8018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTime: 0
+  journeyLength: 0
+  speed: 1
+  growth: 0
+  animationFrames:
+  - {fileID: 21300000, guid: 58019c15f20f8834391980c80b153511, type: 3}
+  - {fileID: 21300000, guid: 1cd0ac7066d5aa04490c5c96ccbb266b, type: 3}
+  - {fileID: 21300000, guid: 1cd0ac7066d5aa04490c5c96ccbb266b, type: 3}
+  - {fileID: 21300000, guid: 1cd0ac7066d5aa04490c5c96ccbb266b, type: 3}
+  - {fileID: 21300000, guid: 1cd0ac7066d5aa04490c5c96ccbb266b, type: 3}
+  - {fileID: 21300000, guid: 1cd0ac7066d5aa04490c5c96ccbb266b, type: 3}
+  startSize: {x: 1, y: 1, z: 1}
+  endSize: {x: 1, y: 1, z: 1}
+  renderer: {fileID: 0}
 --- !u!1 &1225057433
 GameObject:
   m_ObjectHideFlags: 0
