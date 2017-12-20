@@ -5,6 +5,7 @@ using UnityEngine;
 public class FollowMouse : MonoBehaviour {
 
     public float distanceFromCamera;
+    public Camera cam;
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +16,6 @@ public class FollowMouse : MonoBehaviour {
 	void Update () {
         Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = distanceFromCamera;
-        transform.position = Camera.main.ScreenToWorldPoint(mousePosition);
+        transform.position = cam.ScreenToWorldPoint(mousePosition);
     }
 }

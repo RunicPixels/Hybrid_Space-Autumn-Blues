@@ -9,10 +9,13 @@ public class MovementTrail : MonoBehaviour
     public float sectionWidth, treeGrowth;
     public GameObject trailSectionPrefab;
     public DemoTree tree;
+    public MovementTrail otherTrail;
+
+    [HideInInspector()]
+    public int currentTrailNumber = 1;
 
     private TrailSection[] trailSections;
     private Vector2[] points;
-    private int currentTrailNumber = 1;
     private Transform directionParticles;
     private float treeGrowthTimer = 0;
 
@@ -93,6 +96,12 @@ public class MovementTrail : MonoBehaviour
             tree.growth = true;
             treeGrowthTimer -= Time.deltaTime;
         }
+
+        if(otherTrail.currentTrailNumber < currentTrailNumber - faultMargin || otherTrail.currentTrailNumber > currentTrailNumber + faultMargin)
+        {
+            StartCoroutine(Reset());
+            StartCoroutine(otherTrail.Reset());
+        }
     }
 
     /* Check if correct section is entered */
@@ -108,22 +117,25 @@ public class MovementTrail : MonoBehaviour
             return true;
         }
 
-        Reset();
+        StartCoroutine(Reset());
         return false;
     }
 
     private void CheckCompletion()
     {
-        if (trailSections[trailSections.Length - 1].highlighted)
+        if (trailSections[trailSections.Length - faultMargin].highlighted)
         {
+            for (int i = currentTrailNumber - 1; i < sections; i++)
+                trailSections[i].Highlight();
             treeGrowthTimer = treeGrowth;
-            Reset();
+            StartCoroutine(Reset(.5f));
         }
     }
 
     /* Reset entire trail */
-    public void Reset()
+    public IEnumerator Reset(float waitTime = 0)
     {
+        yield return new WaitForSeconds(waitTime);
         foreach (TrailSection section in trailSections)
             section.Reset();
         currentTrailNumber = 1;
