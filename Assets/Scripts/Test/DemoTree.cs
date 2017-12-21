@@ -29,7 +29,11 @@ public class DemoTree : Sequence {
             if (distCovered >= 1) { // Small hack to prevent sprites from overflowing.
                 distCovered = 0.999f;
             }
+<<<<<<< HEAD
         }
+=======
+        } 
+>>>>>>> 03c8648271183da86f7399c9a055b0a31f82b1ee
         else {
             distCovered -= Time.deltaTime * speed;
             if (distCovered < 0.000) { // Small hack to prevent sprites from overflowing.
@@ -39,7 +43,11 @@ public class DemoTree : Sequence {
 
         renderer.sprite = animationFrames[Mathf.FloorToInt(animationFrames.Length * distCovered)]; // Change sprite based on point in sequence. (I.E. With 5 sprites it changes to the next one every 1 / 5 = 0.2 so it will change sprites at 0.2 , 0.4, 0.6, 0.8 etc in a linear fashion.
 
+<<<<<<< HEAD
         camera.GetComponent<Camera>().fieldOfView = 20 + (distCovered * 35);
+=======
+        camera.GetComponent<Camera>().fieldOfView = zoom + (distCovered * zoomScale);
+>>>>>>> 03c8648271183da86f7399c9a055b0a31f82b1ee
         float fracJourney = distCovered; // Current Point in the sequence.
         transform.localScale = Vector3.Lerp(startSize, endSize, fracJourney); // Change Size
     }
