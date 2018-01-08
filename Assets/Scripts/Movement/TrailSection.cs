@@ -28,8 +28,9 @@ public class TrailSection : MonoBehaviour {
         parent = transform.parent.GetComponent<MovementTrail>();
         outerColliders.width = width;
         
-        particleMain.startLifetime = particleLifetime / 50f;
-        
+        particleMain.startLifetime = particleLifetime / 25f;
+        //particleMain.startLifetime = particleMain.startLifetime.constant + particleLifetime / 5;
+
         /* Set collider size to match the length of this section and width specified by MovementTrail */
         float sectionLength = Vector3.Distance(position1, position2);
         innerCollider.size = new Vector3(sectionLength, width, 1f);
