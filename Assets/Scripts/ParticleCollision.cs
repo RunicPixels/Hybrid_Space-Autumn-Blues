@@ -7,11 +7,9 @@ public class ParticleCollision : MonoBehaviour {
     private ParticleSystem system;
     public Gradient activeColor;
     public Gradient inactiveColor;
-    private ParticleSystem.MainModule main;
     // Use this for initialization
     void Start () {
         system = gameObject.GetComponent<ParticleSystem>();
-        main = system.main;
     }
 	
 	// Update is called once per frame
@@ -19,7 +17,8 @@ public class ParticleCollision : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerStay2D( Collider2D collision ) {
+    private void OnTriggerEnter2D( Collider2D collision ) {
+        var main = system.main;
         //Debug.Log("yes");
         if (collision.tag == "Hand") {
             sequence.growth = true;
@@ -28,6 +27,7 @@ public class ParticleCollision : MonoBehaviour {
         }
     }
     private void OnTriggerExit2D( Collider2D collision ) {
+        var main = system.main;
         if (collision.tag == "Hand") {
             sequence.growth = false;
             main.startColor = inactiveColor;

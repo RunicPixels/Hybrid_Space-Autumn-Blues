@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 61072810798030878}
   - component: {fileID: 61687309147235854}
   - component: {fileID: 114758507353313518}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: OuterColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4803566229843282}
   - component: {fileID: 198864355804383390}
   - component: {fileID: 199520621982825238}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 4137287812296596}
   - component: {fileID: 61282051333286674}
   - component: {fileID: 114178996771767150}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: TrailSection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -319,7 +319,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -423,7 +423,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
