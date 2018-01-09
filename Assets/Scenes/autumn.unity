@@ -609,7 +609,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1381037435180824, guid: 91ec45fe6d552d64387c9ea5d9fc4d14, type: 2}
       propertyPath: m_Name
-      value: RightHand (1)
+      value: Lefthand
       objectReference: {fileID: 0}
     - target: {fileID: 95132448220945196, guid: 91ec45fe6d552d64387c9ea5d9fc4d14,
         type: 2}
@@ -622,7 +622,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1381037435180824, guid: 91ec45fe6d552d64387c9ea5d9fc4d14, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 91ec45fe6d552d64387c9ea5d9fc4d14, type: 2}
