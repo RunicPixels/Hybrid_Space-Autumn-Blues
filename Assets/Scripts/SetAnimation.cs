@@ -7,6 +7,7 @@ public class SetAnimation : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         anim = GetComponent<Animator>();
+        //anim.runtimeAnimatorController.st
 	}
 	
 	// Update is called once per frame
