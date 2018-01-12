@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/Final/Breathing.unity
     guid: 4e23b9c0ba2df2141973c54a41069bce
   - enabled: 1
-    path: Assets/Final/Art Testing - kopie.unity
-    guid: 2249d46a12cb9fe4391c97a52391684f
+    path: Assets/Final/StartScene.unity
+    guid: c9a3440cb3aa8194ebd4c8e608f91d38
   - enabled: 1
     path: Assets/Final/autumn.unity
     guid: a5aac1222c0bde84081b8b8c76128e37
+  - enabled: 1
+    path: Assets/Final/Art Testing - kopie.unity
+    guid: 2249d46a12cb9fe4391c97a52391684f

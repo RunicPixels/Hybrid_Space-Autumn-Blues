@@ -1073,6 +1073,10 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
   m_IsPrefabParent: 0
@@ -1485,6 +1489,10 @@ Prefab:
     - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
       propertyPath: EmissionModule.rateOverTime.scalar
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
       propertyPath: ShapeModule.radiusThickness
@@ -2439,6 +2447,10 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
   m_IsPrefabParent: 0
@@ -2633,46 +2645,3 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 4.8, y: 0, z: 0}
---- !u!1 &2016208584
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 2016208586}
-  - component: {fileID: 2016208585}
-  m_Layer: 0
-  m_Name: FadeScene
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2016208585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2016208584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87dfb8a673880a043aae3c387dbd0192, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeOutTexture: {fileID: 2800000, guid: 1995afa179277e7418c30f99df22dc2f, type: 3}
-  fadeSpeed: 1.5
-  curretScene: 0
---- !u!4 &2016208586
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2016208584}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.112383, y: -23.223808, z: -143.62468}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

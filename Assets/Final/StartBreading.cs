@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class StartBreading : MonoBehaviour {
 
+
     public Texture2D fadeOutTexture;
-    public float fadeSpeed = 0.8f;
+    public float fadeSpeed = 1.5f;
     int drawDepth = -1000; 
     float alpha = 1f;
     int fadeDir = -1;
@@ -17,9 +18,24 @@ public class StartBreading : MonoBehaviour {
     }
 
     private void Update(){
-        if (Input.GetKeyDown("p")){
+        if (Input.GetKeyDown("b")){
+            if (SceneManager.GetActiveScene().name != "StartScene"){
+                curretScene = 0;
+                StartCoroutine(Fade());
+            }
+        }
+
+        if (Input.GetKeyDown("1")){
+            //SceneManager.LoadScene(1+1);
+            curretScene = 2;
             StartCoroutine(Fade());
-         }
+        }
+        if (Input.GetKeyDown("2")){
+            //SceneManager.LoadScene(2+1);
+            curretScene = 3;
+            StartCoroutine(Fade());
+        }
+
     }
 
     IEnumerator Fade(){
