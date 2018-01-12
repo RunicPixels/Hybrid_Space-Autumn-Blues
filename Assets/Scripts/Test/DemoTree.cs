@@ -8,11 +8,14 @@ public class DemoTree : Sequence {
     public Vector3 endSize = new Vector3(3, 5, 3); // Scale of your sprite at the end of the sequence.
     float distCovered = 0; // Amount of progress between 0 and 1.
     public SpriteRenderer renderer;
+    private float zoom;
+    public float zoomScale = 20;
     // Use this for initialization
 
     public override void Start() {
         renderer = GetComponent<SpriteRenderer>(); // The Sprite Renderer that visualises the sprite / animation
         base.Start();
+        zoom = camera.GetComponent<Camera>().fieldOfView;
     }
 
     // Update is called once per frame
@@ -28,7 +31,7 @@ public class DemoTree : Sequence {
                 distCovered = 0.999f;
             }
             renderer.sprite = animationFrames[Mathf.FloorToInt(animationFrames.Length * distCovered)]; // Change sprite based on point in sequence. (I.E. With 5 sprites it changes to the next one every 1 / 5 = 0.2 so it will change sprites at 0.2 , 0.4, 0.6, 0.8 etc in a linear fashion.
-
+            camera.GetComponent<Camera>().fieldOfView = zoom + (distCovered * zoomScale);
         }
         float fracJourney = distCovered; // Current Point in the sequence.
         transform.localScale = Vector3.Lerp(startSize, endSize, fracJourney); // Change Size
