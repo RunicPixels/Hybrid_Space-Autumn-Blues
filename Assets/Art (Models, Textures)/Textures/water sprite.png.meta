@@ -1,11 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
 guid: 36eef919b3dcb8f409a490b3823b5849
-=======
-guid: 4f6ff1bf7359e46ce9c6da591b39e92f
-timeCreated: 1513762887
-licenseType: Free
->>>>>>> 5ac191d988d3e8d9b0c0ad4256bf790fe95f836e
 TextureImporter:
   fileIDToRecycleName: {}
   externalObjects: {}
@@ -40,11 +34,7 @@ TextureImporter:
     mipBias: -1
     wrapU: 1
     wrapV: 1
-<<<<<<< HEAD
     wrapW: -1
-=======
-    wrapW: 0
->>>>>>> 5ac191d988d3e8d9b0c0ad4256bf790fe95f836e
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -83,19 +73,7 @@ TextureImporter:
     crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
-<<<<<<< HEAD
     androidETC2FallbackOverride: 0
-=======
-  - buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
->>>>>>> 5ac191d988d3e8d9b0c0ad4256bf790fe95f836e
   spriteSheet:
     serializedVersion: 2
     sprites: []

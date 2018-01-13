@@ -7,24 +7,18 @@ public class MovementTrail : MonoBehaviour
 {
 
     public int sections, faultMargin;
-    public float sectionWidth, directionParticlesSpeed;
+    public float sectionWidth, treeGrowth;
     public GameObject trailSectionPrefab;
-<<<<<<< HEAD
     public DemoTree tree;
     public MovementTrail otherTrail;
 
     [HideInInspector()]
     public int currentTrailNumber = 1, currentTrailSection = 0;
-=======
-    public Tree tree;
->>>>>>> 5ac191d988d3e8d9b0c0ad4256bf790fe95f836e
 
     private TrailSection[] trailSections;
     private Vector2[] points;
-    private int currentTrailNumber = 1;
     private Transform directionParticles;
-    private float particlesTimer = 3;
-    private bool movingParticles = false;
+    private float treeGrowthTimer = 0;
 
     // Use this for initialization
     void Awake()
@@ -119,35 +113,22 @@ public class MovementTrail : MonoBehaviour
     
     private void Update()
     {
-<<<<<<< HEAD
         return;
         if (treeGrowthTimer <= 0)
-=======
-        /*
-        if (particlesTimer <= 0 && !movingParticles)
->>>>>>> 5ac191d988d3e8d9b0c0ad4256bf790fe95f836e
         {
-            movingParticles = true;
-
-            StartCoroutine(MoveParticles());
+            tree.growth = false;
         }
         else
-            particlesTimer -= Time.deltaTime;*/
-    }
-
-    private IEnumerator MoveParticles()
-    {
-        directionParticles.gameObject.SetActive(true);
-
-        for (int i = 0; i < points.Length; i++)
         {
-            directionParticles.transform.localPosition = points[i];
-            yield return new WaitForSeconds(directionParticlesSpeed / sections);
+            tree.growth = true;
+            treeGrowthTimer -= Time.deltaTime;
         }
 
-        directionParticles.gameObject.SetActive(false);
-        particlesTimer = 3;
-        movingParticles = false;
+        if(otherTrail.currentTrailNumber < currentTrailNumber - faultMargin || otherTrail.currentTrailNumber > currentTrailNumber + faultMargin)
+        {
+            StartCoroutine(Reset());
+            StartCoroutine(otherTrail.Reset());
+        }
     }
 
     /* Check if correct section is entered */
@@ -164,32 +145,27 @@ public class MovementTrail : MonoBehaviour
             return true;
         }
 
-        Reset();
+        StartCoroutine(Reset());
         return false;
     }
 
     private void CheckCompletion()
     {
-<<<<<<< HEAD
         return;
         if (trailSections[trailSections.Length - faultMargin].highlighted)
-=======
-        if (trailSections[trailSections.Length - 1].highlighted)
->>>>>>> 5ac191d988d3e8d9b0c0ad4256bf790fe95f836e
         {
-            tree.Grow();
-            Reset();
+            for (int i = currentTrailNumber - 1; i < sections; i++)
+                trailSections[i].Highlight();
+            treeGrowthTimer = treeGrowth;
+            StartCoroutine(Reset(.5f));
         }
     }
 
     /* Reset entire trail */
-    public void Reset()
+    public IEnumerator Reset(float waitTime = 0)
     {
-<<<<<<< HEAD
         yield return null;
         yield return new WaitForSeconds(waitTime);
-=======
->>>>>>> 5ac191d988d3e8d9b0c0ad4256bf790fe95f836e
         foreach (TrailSection section in trailSections)
             section.Reset();
         currentTrailNumber = 1;
