@@ -74,19 +74,6 @@ public class MovementTrail : MonoBehaviour
     {
         GameObject part = (GameObject)Instantiate(trailSectionPrefab, points[k], Quaternion.identity);
         part.transform.parent = transform;
-        /*TrailSection trailSection = part.GetComponent<TrailSection>();
-        trailSection.position1 = points[k - 1];
-        trailSection.position2 = points[k];
-        trailSection.sectionNumber = k;
-        trailSection.width = sectionWidth;
-
-        float sectionFactor = ((float)k / (float)sections);
-        sectionFactor = Mathf.Max(sectionFactor, 0.1f);
-        sectionFactor = Mathf.Min(sectionFactor, 0.8f);
-        trailSection.particleLifetime = sectionFactor * 30;*/
-
-        //trailSections[k - 1] = trailSection;
-
     }
 
     /* Recursive method implementing de Casteljau's algorithm to calculate a single point on a curve described by n points */
@@ -113,61 +100,5 @@ public class MovementTrail : MonoBehaviour
     
     private void Update()
     {
-        return;
-        if (treeGrowthTimer <= 0)
-        {
-            tree.growth = false;
-        }
-        else
-        {
-            tree.growth = true;
-            treeGrowthTimer -= Time.deltaTime;
-        }
-
-        if(otherTrail.currentTrailNumber < currentTrailNumber - faultMargin || otherTrail.currentTrailNumber > currentTrailNumber + faultMargin)
-        {
-            StartCoroutine(Reset());
-            StartCoroutine(otherTrail.Reset());
-        }
-    }
-
-    /* Check if correct section is entered */
-    public bool ActivateTrailPart(int number)
-    {
-        return false;
-        if (number <= currentTrailNumber + faultMargin)
-        {
-            for (int i = currentTrailNumber - 1 ; i < number; i++)
-                trailSections[i].Highlight();
-            currentTrailNumber = number;
-
-            CheckCompletion();
-            return true;
-        }
-
-        StartCoroutine(Reset());
-        return false;
-    }
-
-    private void CheckCompletion()
-    {
-        return;
-        if (trailSections[trailSections.Length - faultMargin].highlighted)
-        {
-            for (int i = currentTrailNumber - 1; i < sections; i++)
-                trailSections[i].Highlight();
-            treeGrowthTimer = treeGrowth;
-            StartCoroutine(Reset(.5f));
-        }
-    }
-
-    /* Reset entire trail */
-    public IEnumerator Reset(float waitTime = 0)
-    {
-        yield return null;
-        yield return new WaitForSeconds(waitTime);
-        foreach (TrailSection section in trailSections)
-            section.Reset();
-        currentTrailNumber = 1;
     }
 }

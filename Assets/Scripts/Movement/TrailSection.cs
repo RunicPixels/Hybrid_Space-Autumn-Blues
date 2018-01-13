@@ -64,7 +64,7 @@ public class TrailSection : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Hand")
-            parent.ActivateTrailPart(sectionNumber);
+      //  if (other.tag == "Hand")
+        //    parent.ActivateTrailPart(sectionNumber);
     }
 }
