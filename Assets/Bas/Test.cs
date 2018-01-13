@@ -111,10 +111,10 @@ public class Test : MonoBehaviour {
             else {
                 jointObj.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
             }
-            //LineRenderer lr = jointObj.AddComponent<LineRenderer>();
-            //lr.SetVertexCount(2);
-            //lr.material = BoneMaterial;
-            //lr.SetWidth(0.05f, 0.05f);
+            LineRenderer lr = jointObj.AddComponent<LineRenderer>();
+            lr.SetVertexCount(2);
+            lr.material = BoneMaterial;
+            lr.SetWidth(0.05f, 0.05f);
 
 
             jointObj.name = jt.ToString();
@@ -136,15 +136,15 @@ public class Test : MonoBehaviour {
             Transform jointObj = bodyObject.transform.Find(jt.ToString());
             jointObj.position = GetVector3FromJoint(sourceJoint);
 
-            //LineRenderer lr = jointObj.GetComponent<LineRenderer>();
-            //if (targetJoint.HasValue) {
-            //    lr.SetPosition(0, jointObj.position);
-            //    lr.SetPosition(1, GetVector3FromJoint(targetJoint.Value));
-            //    lr.SetColors(GetColorForState(sourceJoint.TrackingState), GetColorForState(targetJoint.Value.TrackingState));
-            //}
-            //else {
-            //    lr.enabled = false;
-            //}
+            LineRenderer lr = jointObj.GetComponent<LineRenderer>();
+            if (targetJoint.HasValue) {
+                lr.SetPosition(0, jointObj.position);
+                lr.SetPosition(1, GetVector3FromJoint(targetJoint.Value));
+                lr.SetColors(GetColorForState(sourceJoint.TrackingState), GetColorForState(targetJoint.Value.TrackingState));
+            }
+            else {
+                lr.enabled = false;
+            }
         }
     }
 
