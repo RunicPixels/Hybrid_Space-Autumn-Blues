@@ -56,4 +56,9 @@ public class TreeSequence : MonoBehaviour {
         if(textureIndex >= 0)
             spriteRenderer.sprite = textures[textureIndex];
     }
+
+    public float CurrentTime
+    {
+        get { return currentTime; }
+    }
 }
