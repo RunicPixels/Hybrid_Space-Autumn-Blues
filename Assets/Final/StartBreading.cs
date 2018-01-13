@@ -41,9 +41,6 @@ public class StartBreading : MonoBehaviour {
         if (currentCoundown > 0){
             currentCoundown = currentCoundown - Time.deltaTime;
         }
-        else{
-            StartCoroutine(StartAni(true));
-        }
     }
 
     IEnumerator Fade(){
@@ -82,13 +79,26 @@ public class StartBreading : MonoBehaviour {
     }
 
     IEnumerator StartAni(bool b){
+        object[] an = FindObjectsOfType(typeof(Animator));
+        foreach (var item in an){
+            Debug.Log(item.ToString());
+            if (item.ToString().Contains("RightHand") || item.ToString().Contains("Lefthand") || item.ToString().Contains("breathing")){
+                allAniInScene.Add(item as Animator);
+            }
+        }
         yield return new WaitForEndOfFrame();
         for (int i = 0; i < allAniInScene.Count; i++){
-            allAniInScene[i].enabled = b;
+            allAniInScene[i].enabled = false;
         }
 
+        yield return new WaitForSeconds(startCoundown);
+        for (int i = 0; i < allAniInScene.Count; i++){
+            allAniInScene[i].enabled = true;
+        }
+        allAniInScene.Clear();
+  
+
         /*
-        object[] an = FindObjectsOfType(typeof(Animator));
         yield return new WaitForEndOfFrame();
         for (int i = 0; i < an.Length; i++){
             Debug.Log(an.Length);

@@ -449,8 +449,7 @@ MonoBehaviour:
   fadeOutTexture: {fileID: 2800000, guid: 59915f83440d9a5419f19eb7c1857c7d, type: 3}
   fadeSpeed: 0.8
   curretScene: 0
-  allAniInScene:
-  - {fileID: 0}
+  allAniInScene: []
   startCoundown: 4
   currentCoundown: 4
   color: {fileID: 2800000, guid: 62a80745906a31e4e80055fd7ec2add8, type: 3}
