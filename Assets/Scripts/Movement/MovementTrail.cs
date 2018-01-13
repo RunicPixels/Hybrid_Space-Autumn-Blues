@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class MovementTrail : MonoBehaviour
 {
 
@@ -12,7 +13,7 @@ public class MovementTrail : MonoBehaviour
     public MovementTrail otherTrail;
 
     [HideInInspector()]
-    public int currentTrailNumber = 1;
+    public int currentTrailNumber = 1, currentTrailSection = 0;
 
     private TrailSection[] trailSections;
     private Vector2[] points;
@@ -20,8 +21,18 @@ public class MovementTrail : MonoBehaviour
     private float treeGrowthTimer = 0;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
+        CalculateTrail();
+    }
+
+    public void CalculateTrail()
+    {
+        Object[] objects = GameObject.FindObjectsOfType(typeof(GameObject));
+        foreach(Object obj in objects)
+            if(obj.name == trailSectionPrefab.name + "(Clone)")
+                    DestroyImmediate(obj);
+
         points = new Vector2[sections + 1];
         trailSections = new TrailSection[sections];
 
@@ -42,13 +53,28 @@ public class MovementTrail : MonoBehaviour
 
             InstantiateSection(k);
         }
+
+        currentTrailSection = 1;
+    }
+
+    public Vector3 NextTrailSection(Vector3 currentPosition)
+    {
+        if (Vector3.Distance(points[currentTrailSection], currentPosition) <= 0.01f)
+        {
+            currentTrailSection++;
+            if(currentTrailSection == points.Length)
+                currentTrailSection = 0;
+            return points[currentTrailSection];
+        }
+        else
+            return points[currentTrailSection];
     }
 
     private void InstantiateSection(int k)
     {
         GameObject part = (GameObject)Instantiate(trailSectionPrefab, points[k], Quaternion.identity);
         part.transform.parent = transform;
-        TrailSection trailSection = part.GetComponent<TrailSection>();
+        /*TrailSection trailSection = part.GetComponent<TrailSection>();
         trailSection.position1 = points[k - 1];
         trailSection.position2 = points[k];
         trailSection.sectionNumber = k;
@@ -57,9 +83,9 @@ public class MovementTrail : MonoBehaviour
         float sectionFactor = ((float)k / (float)sections);
         sectionFactor = Mathf.Max(sectionFactor, 0.1f);
         sectionFactor = Mathf.Min(sectionFactor, 0.8f);
-        trailSection.particleLifetime = sectionFactor * 30;
+        trailSection.particleLifetime = sectionFactor * 30;*/
 
-        trailSections[k - 1] = trailSection;
+        //trailSections[k - 1] = trailSection;
 
     }
 
@@ -87,6 +113,7 @@ public class MovementTrail : MonoBehaviour
     
     private void Update()
     {
+        return;
         if (treeGrowthTimer <= 0)
         {
             tree.growth = false;
@@ -107,6 +134,7 @@ public class MovementTrail : MonoBehaviour
     /* Check if correct section is entered */
     public bool ActivateTrailPart(int number)
     {
+        return false;
         if (number <= currentTrailNumber + faultMargin)
         {
             for (int i = currentTrailNumber - 1 ; i < number; i++)
@@ -123,6 +151,7 @@ public class MovementTrail : MonoBehaviour
 
     private void CheckCompletion()
     {
+        return;
         if (trailSections[trailSections.Length - faultMargin].highlighted)
         {
             for (int i = currentTrailNumber - 1; i < sections; i++)
@@ -135,6 +164,7 @@ public class MovementTrail : MonoBehaviour
     /* Reset entire trail */
     public IEnumerator Reset(float waitTime = 0)
     {
+        yield return null;
         yield return new WaitForSeconds(waitTime);
         foreach (TrailSection section in trailSections)
             section.Reset();

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ParticleCollision : MonoBehaviour {
-    public Sequence sequence;
+    public TreeSequence sequence;
     private ParticleSystem system;
     public Gradient activeColor;
     public Gradient inactiveColor;
@@ -20,16 +20,14 @@ public class ParticleCollision : MonoBehaviour {
 	}
 
     private void OnTriggerStay2D( Collider2D collision ) {
-        //Debug.Log("yes");
         if (collision.tag == "Hand") {
-            sequence.growth = true;
-            //Debug.Log("yes");
+            sequence.active = true;
             main.startColor = activeColor;
         }
     }
     private void OnTriggerExit2D( Collider2D collision ) {
         if (collision.tag == "Hand") {
-            sequence.growth = false;
+            sequence.active = false;
             main.startColor = inactiveColor;
         }
     }
