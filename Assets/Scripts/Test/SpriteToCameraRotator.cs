@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ public class SpriteToCameraRotator : MonoBehaviour {
     private GameObject camera;
 	// Use this for initialization
 	void Start () {
-        camera = GameObject.Find("Camera");
+        camera = Camera.main.gameObject;
 	}
 	
 	// Update is called once per frame
