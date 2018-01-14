@@ -152,6 +152,54 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1802171593992930, guid: aa32dfeaa8bc4da4ebb72193f7d1a9c2, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228800502808242, guid: aa32dfeaa8bc4da4ebb72193f7d1a9c2, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1371724043376870, guid: aa32dfeaa8bc4da4ebb72193f7d1a9c2, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1065893253413504, guid: aa32dfeaa8bc4da4ebb72193f7d1a9c2, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1798407368741534, guid: aa32dfeaa8bc4da4ebb72193f7d1a9c2, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1504423935611088, guid: aa32dfeaa8bc4da4ebb72193f7d1a9c2, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1063390524346858, guid: aa32dfeaa8bc4da4ebb72193f7d1a9c2, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1415284146684634, guid: aa32dfeaa8bc4da4ebb72193f7d1a9c2, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1303813046852008, guid: aa32dfeaa8bc4da4ebb72193f7d1a9c2, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1117355970061126, guid: aa32dfeaa8bc4da4ebb72193f7d1a9c2, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1069949621824258, guid: aa32dfeaa8bc4da4ebb72193f7d1a9c2, type: 2}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228800502808242, guid: aa32dfeaa8bc4da4ebb72193f7d1a9c2, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: aa32dfeaa8bc4da4ebb72193f7d1a9c2, type: 2}
   m_IsPrefabParent: 0
@@ -243,7 +291,7 @@ GameObject:
   - component: {fileID: 327371607}
   - component: {fileID: 327371606}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: Breathing Cam
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -255,7 +303,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 327371605}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &327371607
 Behaviour:
   m_ObjectHideFlags: 0
@@ -271,7 +319,7 @@ Camera:
   m_GameObject: {fileID: 327371605}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 2
+  m_ClearFlags: 1
   m_BackGroundColor: {r: 1, g: 1, b: 1, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -284,10 +332,10 @@ Camera:
   field of view: 60
   orthographic: 0
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 10
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 2080
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -487,7 +535,7 @@ GameObject:
   - component: {fileID: 1471641779}
   - component: {fileID: 1471641778}
   - component: {fileID: 1471641777}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: EventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -6,7 +6,7 @@ public class SpriteToCameraRotator : MonoBehaviour {
     private GameObject camera;
 	// Use this for initialization
 	void Start () {
-        camera = Camera.main.gameObject;
+        camera = GameObject.Find("Camera");
 	}
 	
 	// Update is called once per frame

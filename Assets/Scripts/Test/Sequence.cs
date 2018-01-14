@@ -11,7 +11,7 @@ public class Sequence : MonoBehaviour {
     // Use this for initialization
 
     public virtual void Start() {
-        camera = Camera.main.gameObject;
+        camera = GameObject.Find("Camera");
 
         startTime = Time.time;
 
