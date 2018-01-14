@@ -35,13 +35,7 @@ public class TreeSequence : MonoBehaviour {
         {
             currentTime += Time.deltaTime;
 
-            faseObject.transform.localScale = Vector3.Lerp(startingScaleVector, finalScaleVector, currentTime / scaleLength);
-            perspectiveCamera.transform.position = Vector3.Lerp(startingCameraVector, finalCameraPosition, currentTime / sequenceLength);
-
-            int textureIndex = (int)Mathf.Floor((currentTime / sequenceLength) / (1f/(float)textures.Length)) - 1;
-            if(textureIndex >= 0)
-                spriteRenderer.sprite = textures[textureIndex];
-
+            SetProgression(currentTime);
         }
 	}
 

@@ -8,6 +8,7 @@ public class MovementTrail : MonoBehaviour
 
     public int sections, faultMargin;
     public float sectionWidth, treeGrowth;
+    public bool paused = true;
     public GameObject trailSectionPrefab;
     public DemoTree tree;
     public MovementTrail otherTrail;
@@ -54,11 +55,14 @@ public class MovementTrail : MonoBehaviour
             InstantiateSection(k);
         }
 
-        currentTrailSection = 1;
+        currentTrailSection = points.Length - 1;
     }
 
     public Vector3 NextTrailSection(Vector3 currentPosition)
     {
+        if(paused)
+            return points[currentTrailSection];
+
         if (Vector3.Distance(points[currentTrailSection], currentPosition) <= 0.01f)
         {
             currentTrailSection++;
