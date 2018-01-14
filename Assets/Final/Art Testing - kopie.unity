@@ -88,6 +88,7 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
+    m_ShowResolutionOverlay: 1
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 0
 --- !u!196 &4
@@ -173,9 +174,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
+  serializedVersion: 3
   m_Convex: 0
-  m_InflateMesh: 0
+  m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!33 &490254282
@@ -264,6 +265,7 @@ Camera:
   m_TargetEye: 3
   m_HDR: 1
   m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
   m_ForceIntoRT: 1
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
@@ -445,7 +447,7 @@ GameObject:
   - component: {fileID: 896569331}
   - component: {fileID: 896569332}
   m_Layer: 0
-  m_Name: MountainSequence
+  m_Name: Mountain0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -501,12 +503,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 896569328}
-  m_LocalRotation: {x: 0.041875616, y: 0, z: 0, w: 0.99912286}
-  m_LocalPosition: {x: 25.26, y: -21.7, z: -122.0775}
-  m_LocalScale: {x: 2.26, y: 2.3665333, z: 2.3665333}
+  m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_Father: {fileID: 1558272204}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 4.8, y: 0, z: 0}
 --- !u!95 &896569331
 Animator:
@@ -533,25 +535,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 896569328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843c6e951876f2747ba6314ee03e8018, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e1de11d1118aa64ca2757de418e09c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 0
-  journeyLength: 0
-  speed: 0.2
-  growth: 0
-  camera: {fileID: 0}
   animationFrames:
   - {fileID: 21300000, guid: 0377e2c14ab5c6a44a1f2a0808d3db13, type: 3}
+  - {fileID: 21300000, guid: caa9e75f661797e4b9e8efa89d3150ad, type: 3}
   - {fileID: 21300000, guid: 1cd0ac7066d5aa04490c5c96ccbb266b, type: 3}
   - {fileID: 21300000, guid: 1cd0ac7066d5aa04490c5c96ccbb266b, type: 3}
   - {fileID: 21300000, guid: 1cd0ac7066d5aa04490c5c96ccbb266b, type: 3}
   - {fileID: 21300000, guid: 1cd0ac7066d5aa04490c5c96ccbb266b, type: 3}
   - {fileID: 21300000, guid: 1cd0ac7066d5aa04490c5c96ccbb266b, type: 3}
-  startSize: {x: 2.7, y: 2.7, z: 2.7}
-  endSize: {x: 2.7, y: 2.7, z: 2.7}
-  distCovered: 0
-  renderer: {fileID: 896569329}
 --- !u!1 &975435145
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,7 +558,7 @@ GameObject:
   - component: {fileID: 975435147}
   - component: {fileID: 975435146}
   m_Layer: 0
-  m_Name: MountainSequence (1)
+  m_Name: Mountain1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -578,25 +572,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 975435145}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843c6e951876f2747ba6314ee03e8018, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e1de11d1118aa64ca2757de418e09c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 0
-  journeyLength: 0
-  speed: 0.2
-  growth: 0
-  camera: {fileID: 0}
   animationFrames:
   - {fileID: 21300000, guid: 8af9517d41252f64ca985664fec52e61, type: 3}
+  - {fileID: 21300000, guid: 8af9517d41252f64ca985664fec52e61, type: 3}
+  - {fileID: 21300000, guid: 8af9517d41252f64ca985664fec52e61, type: 3}
+  - {fileID: 21300000, guid: 857729c12580be548912cd4713cd5127, type: 3}
   - {fileID: 21300000, guid: fac4a785b07c2f94db046b00cc6d74b7, type: 3}
   - {fileID: 21300000, guid: fac4a785b07c2f94db046b00cc6d74b7, type: 3}
   - {fileID: 21300000, guid: fac4a785b07c2f94db046b00cc6d74b7, type: 3}
   - {fileID: 21300000, guid: fac4a785b07c2f94db046b00cc6d74b7, type: 3}
-  - {fileID: 21300000, guid: fac4a785b07c2f94db046b00cc6d74b7, type: 3}
-  startSize: {x: 2.7, y: 2.7, z: 2.7}
-  endSize: {x: 2.7, y: 2.7, z: 2.7}
-  distCovered: 0
-  renderer: {fileID: 975435148}
 --- !u!95 &975435147
 Animator:
   serializedVersion: 3
@@ -664,12 +651,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 975435145}
-  m_LocalRotation: {x: 0.041875616, y: -0, z: -0, w: 0.99912286}
-  m_LocalPosition: {x: 23.8, y: -21.7, z: -122.0775}
-  m_LocalScale: {x: 2.26, y: 2.3665328, z: 2.3665328}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.64601815, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_Father: {fileID: 1558272204}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 4.8, y: 0, z: 0}
 --- !u!1001 &1132387271
 Prefab:
@@ -708,7 +695,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 494014, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
       propertyPath: m_RootOrder
-      value: 12
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 19815728, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
       propertyPath: InitialModule.startSizeY.minMaxState
@@ -1158,6 +1145,138 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
   m_IsPrefabParent: 0
@@ -1238,7 +1357,7 @@ GameObject:
   - component: {fileID: 1457511157}
   - component: {fileID: 1457511156}
   m_Layer: 0
-  m_Name: MountainSequence (2)
+  m_Name: Mountain2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1252,25 +1371,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1457511155}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843c6e951876f2747ba6314ee03e8018, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e1de11d1118aa64ca2757de418e09c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 0
-  journeyLength: 0
-  speed: 0.2
-  growth: 0
-  camera: {fileID: 0}
   animationFrames:
   - {fileID: 21300000, guid: d950e54dcc599ff4aa8826c0a0c4a4e1, type: 3}
   - {fileID: 21300000, guid: d950e54dcc599ff4aa8826c0a0c4a4e1, type: 3}
   - {fileID: 21300000, guid: d950e54dcc599ff4aa8826c0a0c4a4e1, type: 3}
+  - {fileID: 21300000, guid: d950e54dcc599ff4aa8826c0a0c4a4e1, type: 3}
+  - {fileID: 21300000, guid: 5fabff76a52b0974ab00241d6679f735, type: 3}
   - {fileID: 21300000, guid: 28e5e6c664256ef4789544c4528d04f8, type: 3}
   - {fileID: 21300000, guid: 28e5e6c664256ef4789544c4528d04f8, type: 3}
-  - {fileID: 21300000, guid: 28e5e6c664256ef4789544c4528d04f8, type: 3}
-  startSize: {x: 2.7, y: 2.7, z: 2.7}
-  endSize: {x: 2.7, y: 2.7, z: 2.7}
-  distCovered: 0
-  renderer: {fileID: 1457511158}
 --- !u!95 &1457511157
 Animator:
   serializedVersion: 3
@@ -1338,12 +1449,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1457511155}
-  m_LocalRotation: {x: 0.041875616, y: 0, z: 0, w: 0.99912286}
-  m_LocalPosition: {x: 23.8, y: -21.7, z: -121.8}
-  m_LocalScale: {x: 2.26, y: 2.3665333, z: 2.3665333}
+  m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.64601815, y: 0.009811938, z: 0.11684735}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_Father: {fileID: 1558272204}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 4.8, y: 0, z: 0}
 --- !u!1001 &1479912899
 Prefab:
@@ -1828,9 +1939,236 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1558272202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1558272204}
+  - component: {fileID: 1558272203}
+  m_Layer: 0
+  m_Name: MountainSequence
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1558272203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558272202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 843c6e951876f2747ba6314ee03e8018, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startTime: 0
+  journeyLength: 0
+  speed: 0.2
+  growth: 0
+  camera: {fileID: 0}
+  startSize: {x: 2.7, y: 2.7, z: 2.7}
+  endSize: {x: 2.7, y: 2.7, z: 2.7}
+  distCovered: 0
+  renderers:
+  - {fileID: 896569329}
+  - {fileID: 975435148}
+  - {fileID: 1457511158}
+  - {fileID: 1713750953}
+  - {fileID: 1948223424}
+  mountainAnimations:
+  - {fileID: 896569332}
+  - {fileID: 975435146}
+  - {fileID: 1457511156}
+  - {fileID: 1713750951}
+  - {fileID: 1948223422}
+  skyGradient:
+    serializedVersion: 2
+    key0: {r: 0, g: 0, b: 0, a: 1}
+    key1: {r: 0.17647058, g: 0.124567464, b: 0.16430019, a: 1}
+    key2: {r: 0.15441176, g: 0.16298181, b: 0.25, a: 0}
+    key3: {r: 0.19728589, g: 0.27129295, b: 0.30147058, a: 0}
+    key4: {r: 0, g: 0.5118661, b: 0.7205882, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 193
+    ctime1: 14456
+    ctime2: 44140
+    ctime3: 65535
+    ctime4: 65535
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 4
+    m_NumAlphaKeys: 2
+  skyColour: {r: 0, g: 0, b: 0, a: 0}
+--- !u!4 &1558272204
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1558272202}
+  m_LocalRotation: {x: 0.041875616, y: -0, z: -0, w: 0.99912286}
+  m_LocalPosition: {x: 25.26, y: -21.7, z: -122.0775}
+  m_LocalScale: {x: 2.26, y: 2.3665328, z: 2.3665328}
+  m_Children:
+  - {fileID: 896569330}
+  - {fileID: 975435149}
+  - {fileID: 1457511159}
+  - {fileID: 1713750954}
+  - {fileID: 1948223425}
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1596132507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1916,7 +2254,7 @@ GameObject:
   - component: {fileID: 1713750952}
   - component: {fileID: 1713750951}
   m_Layer: 0
-  m_Name: MountainSequence (3)
+  m_Name: Mountain3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1930,25 +2268,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1713750950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843c6e951876f2747ba6314ee03e8018, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e1de11d1118aa64ca2757de418e09c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 0
-  journeyLength: 0
-  speed: 0.2
-  growth: 0
-  camera: {fileID: 0}
   animationFrames:
   - {fileID: 21300000, guid: 782eb53124ec02d4ca9c2f7e4c2a8613, type: 3}
   - {fileID: 21300000, guid: 782eb53124ec02d4ca9c2f7e4c2a8613, type: 3}
+  - {fileID: 21300000, guid: 782eb53124ec02d4ca9c2f7e4c2a8613, type: 3}
+  - {fileID: 21300000, guid: 782eb53124ec02d4ca9c2f7e4c2a8613, type: 3}
+  - {fileID: 21300000, guid: 782eb53124ec02d4ca9c2f7e4c2a8613, type: 3}
+  - {fileID: 21300000, guid: 782eb53124ec02d4ca9c2f7e4c2a8613, type: 3}
+  - {fileID: 21300000, guid: 01a24506c7ba4ec46a43ca5356fc3a6e, type: 3}
   - {fileID: 21300000, guid: 21bf3db19f434a0439558ff872adac9c, type: 3}
-  - {fileID: 21300000, guid: 21bf3db19f434a0439558ff872adac9c, type: 3}
-  - {fileID: 21300000, guid: 21bf3db19f434a0439558ff872adac9c, type: 3}
-  - {fileID: 21300000, guid: 21bf3db19f434a0439558ff872adac9c, type: 3}
-  startSize: {x: 2.7, y: 2.7, z: 2.7}
-  endSize: {x: 2.7, y: 2.7, z: 2.7}
-  distCovered: 0
-  renderer: {fileID: 1713750953}
 --- !u!95 &1713750952
 Animator:
   serializedVersion: 3
@@ -2016,12 +2347,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1713750950}
-  m_LocalRotation: {x: 0.041875616, y: 0, z: 0, w: 0.99912286}
-  m_LocalPosition: {x: 25.3, y: -21.3, z: -121.7}
-  m_LocalScale: {x: 2.26, y: 2.3665333, z: 2.3665333}
+  m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.017698677, y: 0.18177952, z: 0.14481406}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 1558272204}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 4.8, y: 0, z: 0}
 --- !u!1001 &1738153251
 Prefab:
@@ -2060,7 +2391,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 494014, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
       propertyPath: m_RootOrder
-      value: 13
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 19815728, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
       propertyPath: InitialModule.startSizeY.minMaxState
@@ -2550,6 +2881,138 @@ Prefab:
       propertyPath: ShapeModule.radiusThickness
       value: 1.0000
       objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 19893682, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 847bc0ce7577e6a4992fb57041d6294b, type: 2}
   m_IsPrefabParent: 0
@@ -2638,7 +3101,7 @@ GameObject:
   - component: {fileID: 1948223423}
   - component: {fileID: 1948223422}
   m_Layer: 0
-  m_Name: MountainSequence (4)
+  m_Name: Mountain4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2652,14 +3115,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1948223421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 843c6e951876f2747ba6314ee03e8018, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e1de11d1118aa64ca2757de418e09c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 0
-  journeyLength: 0
-  speed: 0.2
-  growth: 0
-  camera: {fileID: 0}
   animationFrames:
   - {fileID: 21300000, guid: 0a5645dbfe8a6394abd67a781532a187, type: 3}
   - {fileID: 21300000, guid: e010d8997ffc73f4e832b9456970f672, type: 3}
@@ -2667,10 +3125,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e010d8997ffc73f4e832b9456970f672, type: 3}
   - {fileID: 21300000, guid: e010d8997ffc73f4e832b9456970f672, type: 3}
   - {fileID: 21300000, guid: e010d8997ffc73f4e832b9456970f672, type: 3}
-  startSize: {x: 2.7, y: 2.7, z: 2.7}
-  endSize: {x: 2.7, y: 2.7, z: 2.7}
-  distCovered: 0
-  renderer: {fileID: 1948223424}
+  - {fileID: 21300000, guid: e010d8997ffc73f4e832b9456970f672, type: 3}
 --- !u!95 &1948223423
 Animator:
   serializedVersion: 3
@@ -2738,10 +3193,10 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1948223421}
-  m_LocalRotation: {x: 0.041875616, y: 0, z: 0, w: 0.99912286}
-  m_LocalPosition: {x: 24.5, y: -20.8, z: -122}
-  m_LocalScale: {x: 2.26, y: 2.3665333, z: 2.3665333}
+  m_LocalRotation: {x: -0, y: 0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.3362833, y: 0.38171032, z: 0.00081024604}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 1558272204}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 4.8, y: 0, z: 0}
