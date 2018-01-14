@@ -8,6 +8,7 @@ public class DemoMountain : Sequence {
     public float distCovered = 0;                                                                       // Amount of progress between 0 and 1.
     public SpriteRenderer[] renderers;                                                                  // The Sprite Renderer that visualises the sprite / animation
     public MountainAnimations[] mountainAnimations;
+    public GameObject[] stars;
 
     public Gradient skyGradient;
     private Skybox skybox;
@@ -34,6 +35,8 @@ public class DemoMountain : Sequence {
             if(distCovered >= 1) {                                                                       // Small hack to prevent sprites from overflowing.
                 distCovered = 0.999f;
             }
+            stars[Mathf.FloorToInt(stars.Length * distCovered)].SetActive(true);
+
             for(int i = 0; i< renderers.Length; i++) {
             renderers[i].sprite = mountainAnimations[i].animationFrames[Mathf.FloorToInt(mountainAnimations[i].animationFrames.Length * distCovered)];  // Change sprite based on point in sequence. (I.E. With 5 sprites it changes to the next one every 1 / 5 = 0.2 so it will change sprites at 0.2 , 0.4, 0.6, 0.8 etc in a linear fashion.
             }
