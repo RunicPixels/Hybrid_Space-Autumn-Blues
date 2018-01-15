@@ -47,7 +47,6 @@ public class StartBreading : MonoBehaviour {
         }
         if (Input.GetKeyDown("8")){
             MovementManager.instance.UnPause();
-
         }
 
         if (currentCoundown > 0){
@@ -65,7 +64,7 @@ public class StartBreading : MonoBehaviour {
                 SceneManager.LoadScene(c, LoadSceneMode.Additive);
                 yield return new WaitForEndOfFrame();
                 OnLevelWasLoaded(0);
-                MovementManager.instance.Pause();
+                //MovementManager.instance.Pause();
             }
             else{
                 SceneManager.LoadScene(c, LoadSceneMode.Single);
@@ -103,7 +102,6 @@ public class StartBreading : MonoBehaviour {
     }
 
     IEnumerator StartAni(bool b){
-        Debug.Log("dasdas");
         object[] an = FindObjectsOfType(typeof(Animator));
         foreach (var item in an){
             if (item.ToString().Contains("RightHand") || item.ToString().Contains("Lefthand") || item.ToString().Contains("breathing")){
