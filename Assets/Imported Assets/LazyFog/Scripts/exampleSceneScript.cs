@@ -28,35 +28,35 @@ public class exampleSceneScript : MonoBehaviour {
 		
 	}
 
-    void OnGUI() {
-        float dy = 25;
-        float y = 1;
-        float x2 = 200;
+    //void OnGUI() {
+    //    float dy = 25;
+    //    float y = 1;
+    //    float x2 = 200;
 
-        GUI.Label(new Rect(25, dy * y, 100, 30), "Scale");
-        scale = GUI.HorizontalSlider(new Rect(x2, dy * y++, 100, 30), scale, 0.0f, 5.0f);
+    //    GUI.Label(new Rect(25, dy * y, 100, 30), "Scale");
+    //    scale = GUI.HorizontalSlider(new Rect(x2, dy * y++, 100, 30), scale, 0.0f, 5.0f);
 
-        GUI.Label(new Rect(25, dy * y, 100, 30), "Intensity");
-        intensity = GUI.HorizontalSlider(new Rect(x2, dy * y++, 100, 30), intensity, 0.0f, 1.0f);
+    //    GUI.Label(new Rect(25, dy * y, 100, 30), "Intensity");
+    //    intensity = GUI.HorizontalSlider(new Rect(x2, dy * y++, 100, 30), intensity, 0.0f, 1.0f);
 
-        GUI.Label(new Rect(25, dy * y, 100, 30), "Alpha");
-        alpha = GUI.HorizontalSlider(new Rect(x2, dy * y++, 100, 30), alpha, 0.0f, 2.5f);
+    //    GUI.Label(new Rect(25, dy * y, 100, 30), "Alpha");
+    //    alpha = GUI.HorizontalSlider(new Rect(x2, dy * y++, 100, 30), alpha, 0.0f, 2.5f);
 
-        GUI.Label(new Rect(25, dy * y, 100, 30), "AlphaSub");
-        alphasub = GUI.HorizontalSlider(new Rect(x2, dy * y++, 100, 30), alphasub, 0.0f, 1.0f);
+    //    GUI.Label(new Rect(25, dy * y, 100, 30), "AlphaSub");
+    //    alphasub = GUI.HorizontalSlider(new Rect(x2, dy * y++, 100, 30), alphasub, 0.0f, 1.0f);
 
-        GUI.Label(new Rect(25, dy * y, 100, 30), "Pow");
-        pow = GUI.HorizontalSlider(new Rect(x2, dy * y++, 100, 30), pow, 0.0f, 4.0f);
+    //    GUI.Label(new Rect(25, dy * y, 100, 30), "Pow");
+    //    pow = GUI.HorizontalSlider(new Rect(x2, dy * y++, 100, 30), pow, 0.0f, 4.0f);
 
-        GUI.Label(new Rect(25, dy * y, 100, 30), "Red");
-        color.r = GUI.HorizontalSlider(new Rect(x2, dy * y++, 100, 30), color.r, 0.0f, 1.0f);
+    //    GUI.Label(new Rect(25, dy * y, 100, 30), "Red");
+    //    color.r = GUI.HorizontalSlider(new Rect(x2, dy * y++, 100, 30), color.r, 0.0f, 1.0f);
 
-        GUI.Label(new Rect(25, dy * y, 100, 30), "Green");
-        color.g = GUI.HorizontalSlider(new Rect(x2, dy * y++, 100, 30), color.g, 0.0f, 1.0f);
+    //    GUI.Label(new Rect(25, dy * y, 100, 30), "Green");
+    //    color.g = GUI.HorizontalSlider(new Rect(x2, dy * y++, 100, 30), color.g, 0.0f, 1.0f);
 
-        GUI.Label(new Rect(25, dy * y, 100, 30), "Blue");
-        color.b = GUI.HorizontalSlider(new Rect(x2, dy * y++, 100, 30), color.b, 0.0f, 1.0f);
+    //    GUI.Label(new Rect(25, dy * y, 100, 30), "Blue");
+    //    color.b = GUI.HorizontalSlider(new Rect(x2, dy * y++, 100, 30), color.b, 0.0f, 1.0f);
 
-    }
+    //}
 
 }
