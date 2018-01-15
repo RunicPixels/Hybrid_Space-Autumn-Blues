@@ -26,7 +26,7 @@ public class Sequence : MonoBehaviour {
 	public virtual void Update () {
         if (Input.GetKeyDown(KeyCode.Space) && growth == false) {                                        // Iniatates growth when space is pressed.
             growth = true;
-            Invoke("StopGrowth", 1f);                                                                   // Stops Growth after 1 second.
+            Invoke("StopGrowth", 100f);                                                                   // Stops Growth after 1 second.
         }
         if (growth) {
             Grow();
