@@ -2,24 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class MovementTrail : MonoBehaviour
 {
 
     public int sections, faultMargin;
-    public float sectionWidth, directionParticlesSpeed;
+    public float sectionWidth, treeGrowth;
+    public bool paused = true;
     public GameObject trailSectionPrefab;
-    public Tree tree;
+    public DemoTree tree;
+    public MovementTrail otherTrail;
+
+    [HideInInspector()]
+    public int currentTrailNumber = 1, currentTrailSection = 0;
 
     private TrailSection[] trailSections;
     private Vector2[] points;
-    private int currentTrailNumber = 1;
     private Transform directionParticles;
-    private float particlesTimer = 3;
-    private bool movingParticles = false;
+    private float treeGrowthTimer = 0;
 
     // Use this for initialization
-    void Start()
+    void Awake()
     {
+        CalculateTrail();
+    }
+
+    public void CalculateTrail()
+    {
+        Object[] objects = GameObject.FindObjectsOfType(typeof(GameObject));
+        foreach(Object obj in objects)
+            if(obj.name == trailSectionPrefab.name + "(Clone)")
+                    DestroyImmediate(obj);
+
         points = new Vector2[sections + 1];
         trailSections = new TrailSection[sections];
 
@@ -40,25 +54,30 @@ public class MovementTrail : MonoBehaviour
 
             InstantiateSection(k);
         }
+
+        currentTrailSection = points.Length - 1;
+    }
+
+    public Vector3 NextTrailSection(Vector3 currentPosition)
+    {
+        if(paused)
+            return points[currentTrailSection];
+
+        if (Vector3.Distance(points[currentTrailSection], currentPosition) <= 0.01f)
+        {
+            currentTrailSection++;
+            if(currentTrailSection == points.Length)
+                currentTrailSection = 0;
+            return points[currentTrailSection];
+        }
+        else
+            return points[currentTrailSection];
     }
 
     private void InstantiateSection(int k)
     {
         GameObject part = (GameObject)Instantiate(trailSectionPrefab, points[k], Quaternion.identity);
         part.transform.parent = transform;
-        TrailSection trailSection = part.GetComponent<TrailSection>();
-        trailSection.position1 = points[k - 1];
-        trailSection.position2 = points[k];
-        trailSection.sectionNumber = k;
-        trailSection.width = sectionWidth;
-
-        float sectionFactor = ((float)k / (float)sections);
-        sectionFactor = Mathf.Max(sectionFactor, 0.1f);
-        sectionFactor = Mathf.Min(sectionFactor, 0.8f);
-        trailSection.particleLifetime = sectionFactor * 30;
-
-        trailSections[k - 1] = trailSection;
-
     }
 
     /* Recursive method implementing de Casteljau's algorithm to calculate a single point on a curve described by n points */
@@ -85,63 +104,5 @@ public class MovementTrail : MonoBehaviour
     
     private void Update()
     {
-        /*
-        if (particlesTimer <= 0 && !movingParticles)
-        {
-            movingParticles = true;
-
-            StartCoroutine(MoveParticles());
-        }
-        else
-            particlesTimer -= Time.deltaTime;*/
-    }
-
-    private IEnumerator MoveParticles()
-    {
-        directionParticles.gameObject.SetActive(true);
-
-        for (int i = 0; i < points.Length; i++)
-        {
-            directionParticles.transform.localPosition = points[i];
-            yield return new WaitForSeconds(directionParticlesSpeed / sections);
-        }
-
-        directionParticles.gameObject.SetActive(false);
-        particlesTimer = 3;
-        movingParticles = false;
-    }
-
-    /* Check if correct section is entered */
-    public bool ActivateTrailPart(int number)
-    {
-        if (number <= currentTrailNumber + faultMargin)
-        {
-            for (int i = currentTrailNumber - 1 ; i < number; i++)
-                trailSections[i].Highlight();
-            currentTrailNumber = number;
-
-            CheckCompletion();
-            return true;
-        }
-
-        Reset();
-        return false;
-    }
-
-    private void CheckCompletion()
-    {
-        if (trailSections[trailSections.Length - 1].highlighted)
-        {
-            tree.Grow();
-            Reset();
-        }
-    }
-
-    /* Reset entire trail */
-    public void Reset()
-    {
-        foreach (TrailSection section in trailSections)
-            section.Reset();
-        currentTrailNumber = 1;
     }
 }
