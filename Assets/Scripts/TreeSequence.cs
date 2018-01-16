@@ -5,7 +5,7 @@ using UnityEngine;
 public class TreeSequence : MonoBehaviour {
 
     [HideInInspector()]
-    public bool active = false;
+    public bool active = false; // check
     public float sequenceLength, finalScale;
     public Vector3 finalCameraPosition;
     public Sprite[] textures;

@@ -32,8 +32,8 @@ MonoBehaviour:
     overrideState: 1
     value: 5
   threshold:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0.5
   softKnee:
     overrideState: 0
     value: 0.5
