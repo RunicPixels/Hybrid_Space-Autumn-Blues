@@ -8,7 +8,8 @@ public class MovementManager : MonoBehaviour {
 
 	[HideInInspector()]
 	public bool movementActive = false;
-    public TreeSequence sequence;
+    // public TreeSequence sequence;
+    public Sequence sequence;
 	public GameObject[] movements;
 
 	private MovementTrailParent[] parents;
@@ -23,11 +24,11 @@ public class MovementManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		currentMovement = transform.GetChild(0).gameObject;
+		//currentMovement = transform.GetChild(0).gameObject;
 
-		parents = new MovementTrailParent[movements.Length];
-		for(int i = 0; i < movements.Length; i++)
-			parents[i] = movements[i].GetComponent<MovementTrailParent>();
+		//parents = new MovementTrailParent[movements.Length];
+		//for(int i = 0; i < movements.Length; i++)
+		//	parents[i] = movements[i].GetComponent<MovementTrailParent>();
 	}
 	
 	// Update is called once per frame
@@ -42,18 +43,18 @@ public class MovementManager : MonoBehaviour {
 	}
 	public void NextMovement()
 	{
-		movementIndex++;
-		Destroy(currentMovement.gameObject);
-		currentMovement = (GameObject)Instantiate(movements[movementIndex], Vector3.zero, Quaternion.identity, this.transform);
+		//movementIndex++;
+		//Destroy(currentMovement.gameObject);
+		//currentMovement = (GameObject)Instantiate(movements[movementIndex], Vector3.zero, Quaternion.identity, this.transform);
 	}
 
 	public void UnPause()
 	{
-		parents[movementIndex].UnPause();
+		//parents[movementIndex].UnPause();
 	}
 
 	public void Pause()
 	{
-		parents[movementIndex].Pause();
+		//parents[movementIndex].Pause();
 	}
 }

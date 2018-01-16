@@ -8,6 +8,7 @@ public class Sequence : MonoBehaviour {
     public float speed = 1.0F;
     public float distCovered = 0;                                                                       // Amount of progress between 0 and 1.
     public bool growth = false;
+    public bool active = true;
     public Camera mainCamera;
     private float zoom;
     public float zoomScale = 20;
@@ -24,13 +25,15 @@ public class Sequence : MonoBehaviour {
 	
 	// Update is called once per frame
 	public virtual void Update () {
-        if (Input.GetKeyDown(KeyCode.Space) && growth == false) {                                        // Iniatates growth when space is pressed.
-            growth = true;
-            Invoke("StopGrowth", 1f);                                                                   // Stops Growth after 1 second.
-        }
-        if (growth) {
-            Grow();
-        }
+        //if (active) {
+            if (Input.GetKeyDown(KeyCode.Space) && growth == false) {                                        // Iniatates growth when space is pressed.
+                growth = true;
+                Invoke("StopGrowth", 100f);                                                                   // Stops Growth after 1 second.
+            }
+            if (growth) {
+                Grow();
+            }
+        //}
 
         mainCamera.GetComponent<Camera>().fieldOfView = zoom + (distCovered * zoomScale);
     }

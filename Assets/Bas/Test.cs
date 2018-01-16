@@ -106,15 +106,15 @@ public class Test : MonoBehaviour {
             GameObject jointObj = GameObject.Instantiate(TestAura);
             if (jt == Kinect.JointType.HandRight || jt == Kinect.JointType.HandLeft) {
                 jointObj.tag = "Hand";
-                jointObj.transform.localScale = new Vector3(2f, 2f, 2f);
+                jointObj.transform.localScale = new Vector3(3f, 3f, 3f);
             }
             else {
-                jointObj.transform.localScale = new Vector3(0.3f, 0.3f, 0.3f);
+                jointObj.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
             }
             LineRenderer lr = jointObj.AddComponent<LineRenderer>();
             lr.SetVertexCount(2);
             lr.material = BoneMaterial;
-            lr.SetWidth(0.05f, 0.05f);
+            lr.SetWidth(0.0f, 0.00f);
 
 
             jointObj.name = jt.ToString();
