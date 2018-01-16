@@ -7,10 +7,9 @@ public class MovementTrail : MonoBehaviour
 {
 
     public int sections, faultMargin;
-    public float sectionWidth, treeGrowth;
+    public float sectionWidth;
     public bool paused = true;
     public GameObject trailSectionPrefab;
-    public DemoTree tree;
     public MovementTrail otherTrail;
 
     [HideInInspector()]
@@ -19,7 +18,6 @@ public class MovementTrail : MonoBehaviour
     private TrailSection[] trailSections;
     private Vector2[] points;
     private Transform directionParticles;
-    private float treeGrowthTimer = 0;
 
     // Use this for initialization
     void Awake()
