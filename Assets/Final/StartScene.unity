@@ -245,7 +245,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartScene: {fileID: 8300000, guid: 8df0f6423111b3d4ab2cce007bb2dc82, type: 3}
   Scene1: {fileID: 8300000, guid: 46c69981764f8cf49b5bcc300f12355b, type: 3}
-  Scene2: {fileID: 8300000, guid: 7696428ca3d87c04ebe2bf7c8b6e9ca1, type: 3}
+  Scene2: {fileID: 8300000, guid: 8df0f6423111b3d4ab2cce007bb2dc82, type: 3}
 --- !u!4 &759908643
 Transform:
   m_ObjectHideFlags: 0
@@ -4064,9 +4064,9 @@ MonoBehaviour:
   currentCoundown: 4
   color: {fileID: 2800000, guid: 62a80745906a31e4e80055fd7ec2add8, type: 3}
   colorBreathing: {fileID: 2800000, guid: 59915f83440d9a5419f19eb7c1857c7d, type: 3}
-  breathing: {fileID: 0}
   breathing_anim: {fileID: 0}
   breathingOn: 0
+  alpha0: 1
 --- !u!4 &1520210424
 Transform:
   m_ObjectHideFlags: 0
