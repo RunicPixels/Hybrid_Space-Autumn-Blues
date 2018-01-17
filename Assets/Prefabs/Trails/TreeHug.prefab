@@ -47,7 +47,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1195366574529608
 GameObject:
   m_ObjectHideFlags: 1
@@ -183,7 +183,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1069832228575716}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.75, y: 2.5, z: 0}
+  m_LocalPosition: {x: -0.75, y: 2.5, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 4175091601577430}
@@ -548,11 +548,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   repetitionTrail: 1
   sections: 100
-  paused: 0
+  paused: 1
   reverse: 1
   trailSectionPrefab: {fileID: 1093775595989092, guid: aee9462319994214bb0b9b0f3f1c4994,
     type: 2}
+  target: {fileID: 1451226553780952}
   currentTrailSection: 0
+  targetActive: 0
 --- !u!114 &114937629080226878
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -566,11 +568,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   repetitionTrail: 0
   sections: 100
-  paused: 0
+  paused: 1
   reverse: 1
   trailSectionPrefab: {fileID: 1093775595989092, guid: 71f60592e2364aa4ab8fcf2dcb9cb2c7,
     type: 2}
+  target: {fileID: 1069832228575716}
   currentTrailSection: 0
+  targetActive: 0
 --- !u!198 &198177317853769012
 ParticleSystem:
   m_ObjectHideFlags: 1

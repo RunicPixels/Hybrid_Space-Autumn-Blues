@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Sequence : MonoBehaviour {
+
+    public static Sequence instance;
+
     public float sequenceLength;
     // Amount of progress between 0 and 1.   
     [HideInInspector()]
@@ -12,6 +15,13 @@ public class Sequence : MonoBehaviour {
     public Camera mainCamera;
 
     protected float currentTime = 0f;
+
+    private bool isTriggered = false;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Use this for initialization
 
@@ -33,6 +43,19 @@ public class Sequence : MonoBehaviour {
         currentTime += Time.deltaTime;
         progress = Mathf.Min(1f, currentTime / sequenceLength);
 
+    }
+
+    public bool ProgressToNextScene
+    {
+        get
+        {
+            if (!isTriggered && progress == 1f)
+            {
+                isTriggered = true;
+                return true;
+            }
+            return false;
+        }
     }
 
 }

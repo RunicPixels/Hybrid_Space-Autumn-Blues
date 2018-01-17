@@ -18,6 +18,8 @@ public class StartBreading : MonoBehaviour {
 
     public bool breathingOn = false;
 
+    
+
     void Awake(){
         DontDestroyOnLoad(this);
         
@@ -49,7 +51,12 @@ public class StartBreading : MonoBehaviour {
         if (currentCoundown > 0){
             currentCoundown = currentCoundown - Time.deltaTime;
         }
-        
+
+        if (Sequence.instance != null){
+            if(Sequence.instance.ProgressToNextScene)
+                StartCoroutine(ProgressToNextScene());
+        }
+
         if (breathingOn){
             if (currentScene != 3){
                 currentScene = 3;
@@ -111,6 +118,18 @@ public class StartBreading : MonoBehaviour {
         StartTimer();
         if (breathingOn == false){
             StartCoroutine(StartAni());
+        }
+    }
+
+    private IEnumerator ProgressToNextScene()
+    {
+        MovementManager.instance.DisableCurrentMovement();
+        yield return new WaitForSeconds(5f);
+
+        if (currentScene != 2)
+        {
+            currentScene = 2;
+            StartCoroutine(Fade());
         }
     }
 
