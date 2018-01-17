@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 public class StartBreading : MonoBehaviour {
 
     public Texture2D fadeOutTexture;
-    public float fadeSpeed = 1.5f;
+    public float fadeSpeed = 0.8f;
     int drawDepth = -1000; 
-    float alpha = 1f;
+    float alpha = 1.0f;
     int fadeDir = -1;
     public int currentScene = 0;
 
@@ -17,14 +17,12 @@ public class StartBreading : MonoBehaviour {
     public Texture2D color;
 
     public bool breathingOn = false;
-
-    
+       
 
     void Awake(){
-        DontDestroyOnLoad(this);
-        
+        DontDestroyOnLoad(this);       
     }
-    //sequ progress
+
     private void Update(){
 
         if (Input.GetKeyDown("b")){
@@ -41,8 +39,14 @@ public class StartBreading : MonoBehaviour {
             StartCoroutine(Fade());
         }
 
+        if (Input.GetKeyDown("5")){
+            BeginFade(1);
+
+            StartCoroutine(Fade());
+        }
+
         if (Input.GetKeyDown("9")){
-            if(MovementManager.instance)MovementManager.instance.Pause();
+            if (MovementManager.instance)MovementManager.instance.Pause();
         }
         if (Input.GetKeyDown("8")){
             if(MovementManager.instance)MovementManager.instance.UnPause();
@@ -64,7 +68,7 @@ public class StartBreading : MonoBehaviour {
                 if(MovementManager.instance)MovementManager.instance.Pause();
             }
         }
-        if (breathingOn == false){
+        if (breathingOn == false && SceneManager.GetSceneByBuildIndex(3).isLoaded){
             currentScene = 1;
             if (SceneManager.GetSceneByBuildIndex(3).isLoaded) {
                 SceneManager.UnloadSceneAsync(3);
@@ -103,6 +107,8 @@ public class StartBreading : MonoBehaviour {
 
         alpha += fadeDir * fadeSpeed * Time.deltaTime;  
         alpha = Mathf.Clamp01(alpha);
+        Debug.Log(alpha);
+
         GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, alpha);
         GUI.depth = drawDepth;
         GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), fadeOutTexture);
@@ -121,13 +127,11 @@ public class StartBreading : MonoBehaviour {
         }
     }
     
-    private IEnumerator ProgressToNextScene()
-    {
+    private IEnumerator ProgressToNextScene(){
         MovementManager.instance.DisableCurrentMovement();
         yield return new WaitForSeconds(5f);
 
-        if (currentScene == 1)
-        {
+        if (currentScene == 1){
             currentScene = 2;
             StartCoroutine(Fade());
         }
