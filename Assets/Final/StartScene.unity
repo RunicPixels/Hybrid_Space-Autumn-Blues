@@ -243,9 +243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca6fc971e15559942ac7a4c8b0a92736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartScene: {fileID: 8300000, guid: cb48c6a18fbe7534d83786f85032be7b, type: 3}
-  Scene1: {fileID: 8300000, guid: 7696428ca3d87c04ebe2bf7c8b6e9ca1, type: 3}
-  Scene2: {fileID: 8300000, guid: cb48c6a18fbe7534d83786f85032be7b, type: 3}
+  StartScene: {fileID: 8300000, guid: 8df0f6423111b3d4ab2cce007bb2dc82, type: 3}
+  Scene1: {fileID: 8300000, guid: 46c69981764f8cf49b5bcc300f12355b, type: 3}
+  Scene2: {fileID: 8300000, guid: 7696428ca3d87c04ebe2bf7c8b6e9ca1, type: 3}
 --- !u!4 &759908643
 Transform:
   m_ObjectHideFlags: 0
@@ -537,7 +537,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -809844004
+  randomSeed: 1003718985
   InitialModule:
     serializedVersion: 3
     enabled: 1
