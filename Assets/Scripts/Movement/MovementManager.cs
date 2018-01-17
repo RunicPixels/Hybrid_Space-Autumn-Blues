@@ -39,8 +39,9 @@ public class MovementManager : MonoBehaviour {
             Pause();
         if (Input.GetKeyDown(KeyCode.T))
             UnPause();
-
-            if (movementActive)
+        
+        movementActive = parents[movementIndex].BothTargetsActive;
+        if (movementActive)
 			sequence.active = true;
 		else
 			sequence.active = false;

@@ -589,6 +589,10 @@ Prefab:
       propertyPath: leftOrb
       value: 
       objectReference: {fileID: 103399097}
+    - target: {fileID: 4105152880772514, guid: 5886aaa7475c5334c90799e1b380a54e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -0.75
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5886aaa7475c5334c90799e1b380a54e, type: 2}
   m_IsPrefabParent: 0
@@ -902,6 +906,10 @@ Prefab:
       propertyPath: leftOrb
       value: 
       objectReference: {fileID: 1185387283}
+    - target: {fileID: 1261417896703732, guid: c9750dbdf662ef940969ca709793f906, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c9750dbdf662ef940969ca709793f906, type: 2}
   m_IsPrefabParent: 0
