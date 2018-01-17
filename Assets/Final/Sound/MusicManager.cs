@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour {
 
-    public AudioClip mainTheme;
-    public AudioClip menuTheme;
+    public AudioClip StartScene;
+    public AudioClip Scene1;
+    public AudioClip Scene2;
+
 
     private string sceneName;
 
@@ -29,10 +31,15 @@ public class MusicManager : MonoBehaviour {
     void PlayMusic(){
         AudioClip clipToPlay = null;
         if (sceneName == "StartScene"){
-            clipToPlay = menuTheme;
+            clipToPlay = StartScene;
         }
-        else if (sceneName == "Main Scene 1 - Tree"){
-            clipToPlay = mainTheme;
+        else if (sceneName == "Main Scene 1 - Tree")
+        {
+            clipToPlay = Scene1;
+        }
+        else if (sceneName == "Main Scene 2 - Mountains")
+        {
+            clipToPlay = Scene2;
         }
 
         if (clipToPlay != null){
