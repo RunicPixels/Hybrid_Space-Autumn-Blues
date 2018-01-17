@@ -10,7 +10,7 @@ public class StartBreading : MonoBehaviour {
     int drawDepth = -1000; 
     float alpha = 1f;
     int fadeDir = -1;
-    public int curretScene = 1;
+    public int currentScene = 1;
 
     public float startCoundown = 4;
     public float currentCoundown;
@@ -31,19 +31,19 @@ public class StartBreading : MonoBehaviour {
             }
         }
         if (Input.GetKeyDown("1")){
-            curretScene = 1;
+            currentScene = 1;
             StartCoroutine(Fade());
         }
         if (Input.GetKeyDown("2")){
-            curretScene = 2;
+            currentScene = 2;
             StartCoroutine(Fade());
         }
 
         if (Input.GetKeyDown("9")){
-            MovementManager.instance.Pause();
+            if(MovementManager.instance)MovementManager.instance.Pause();
         }
         if (Input.GetKeyDown("8")){
-            MovementManager.instance.UnPause();
+            if(MovementManager.instance)MovementManager.instance.UnPause();
         }
 
         if (currentCoundown > 0){
@@ -51,15 +51,17 @@ public class StartBreading : MonoBehaviour {
         }
         
         if (breathingOn){
-            if (curretScene != 3){
-                curretScene = 3;
+            if (currentScene != 3){
+                currentScene = 3;
                 StartCoroutine(Fade());
-                MovementManager.instance.Pause();
+                if(MovementManager.instance)MovementManager.instance.Pause();
             }
         }
         if (breathingOn == false){
-            curretScene = 1;
-            SceneManager.UnloadSceneAsync(3);
+            currentScene = 1;
+            if (SceneManager.GetSceneByBuildIndex(3).isLoaded) {
+                SceneManager.UnloadSceneAsync(3);
+            }
             BeginFade(-1);
             StartTimer();
             StartCoroutine(StartAni());
@@ -68,7 +70,7 @@ public class StartBreading : MonoBehaviour {
 
     IEnumerator Fade(){
         if (currentCoundown <= 0){
-            int c = curretScene;
+            int c = currentScene;
             float fadeTime = BeginFade(1); 
             yield return new WaitForSeconds(fadeTime);
             //SceneManager.LoadScene(c);
@@ -114,7 +116,7 @@ public class StartBreading : MonoBehaviour {
 
     IEnumerator StartAni(){
         yield return new WaitForSeconds(startCoundown);
-        MovementManager.instance.UnPause();
+        if(MovementManager.instance)MovementManager.instance.UnPause();
     } 
 }
 /*
