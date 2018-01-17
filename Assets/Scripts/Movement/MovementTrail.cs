@@ -2,35 +2,32 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[ExecuteInEditMode]
+// [ExecuteInEditMode]
 public class MovementTrail : MonoBehaviour
 {
 
-    public int sections, faultMargin;
-    public float sectionWidth;
+    public int sections;
     public bool paused = true;
     public GameObject trailSectionPrefab;
-    public MovementTrail otherTrail;
 
     [HideInInspector()]
     public int currentTrailNumber = 1, currentTrailSection = 0;
 
     private TrailSection[] trailSections;
     private Vector2[] points;
-    private Transform directionParticles;
 
     // Use this for initialization
-    void Awake()
+    void Start()
     {
         CalculateTrail();
     }
 
     public void CalculateTrail()
     {
-        Object[] objects = GameObject.FindObjectsOfType(typeof(GameObject));
-        foreach(Object obj in objects)
-            if(obj.name == trailSectionPrefab.name + "(Clone)")
-                    DestroyImmediate(obj);
+        // Object[] objects = GameObject.FindObjectsOfType(typeof(GameObject));
+        // foreach(Object obj in objects)
+        //     if(obj.name == trailSectionPrefab.name + "(Clone)")
+        //             DestroyImmediate(obj);
 
         points = new Vector2[sections + 1];
         trailSections = new TrailSection[sections];
