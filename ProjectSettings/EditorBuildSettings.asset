@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Final/BreathingNew.unity
-    guid: d90b6c2548508204bb9b5d2e44574aa1
-  - enabled: 1
     path: Assets/Final/StartScene.unity
     guid: c9a3440cb3aa8194ebd4c8e608f91d38
   - enabled: 1
@@ -17,3 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Final/Scenes/Main Scene 2 - Mountains.unity
     guid: d80422dd85cf3a044bd9615fa7dd25b8
+  - enabled: 1
+    path: Assets/Final/BreathingNew.unity
+    guid: d90b6c2548508204bb9b5d2e44574aa1
