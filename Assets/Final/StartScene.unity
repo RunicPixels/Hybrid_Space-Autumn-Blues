@@ -224,6 +224,7 @@ GameObject:
   - component: {fileID: 759908643}
   - component: {fileID: 759908642}
   - component: {fileID: 759908644}
+  - component: {fileID: 759908645}
   m_Layer: 0
   m_Name: Audio Manager
   m_TagString: Untagged
@@ -242,8 +243,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca6fc971e15559942ac7a4c8b0a92736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainTheme: {fileID: 8300000, guid: 7696428ca3d87c04ebe2bf7c8b6e9ca1, type: 3}
-  menuTheme: {fileID: 8300000, guid: 7696428ca3d87c04ebe2bf7c8b6e9ca1, type: 3}
+  StartScene: {fileID: 8300000, guid: cb48c6a18fbe7534d83786f85032be7b, type: 3}
+  Scene1: {fileID: 8300000, guid: 7696428ca3d87c04ebe2bf7c8b6e9ca1, type: 3}
+  Scene2: {fileID: 8300000, guid: cb48c6a18fbe7534d83786f85032be7b, type: 3}
 --- !u!4 &759908643
 Transform:
   m_ObjectHideFlags: 0
@@ -270,6 +272,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1b5d070ea252b343b042a434a668217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &759908645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 759908641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68849a44b569c1d40914ad7298fc1e73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundGroups:
+  - GroupID: Scene 1
+    group:
+    - {fileID: 0}
+  - GroupID: Scene 2
+    group: []
 --- !u!1 &1029831464
 GameObject:
   m_ObjectHideFlags: 0
