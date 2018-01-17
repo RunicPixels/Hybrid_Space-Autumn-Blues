@@ -8,26 +8,29 @@ public class MovementTrail : MonoBehaviour
     public bool repetitionTrail = false;
     public int sections;
     public bool paused = false, reverse = false;
-    public bool targetActive = false;
-    public GameObject trailSectionPrefab, rightOrb, leftOrb;
+    public GameObject trailSectionPrefab, target;
 
     [HideInInspector()]
     public int currentTrailSection = 0;
+    [HideInInspector()]
+    public bool targetActive = false;
 
     private float particleLifetime = 1;
     private int repetitions = 0;
     private bool isReversing = false;
     private TrailSection[] trailSections;
     private Vector2[] points;
-    private Vector3 leftOrbStartPosition, rightOrbStartPosition;
+    private Vector3 targetStartPosition;
     private List<ParticleSystem> particleSystems = new List<ParticleSystem>();
 
     // Use this for initialization
     protected virtual void Start()
     {
-        leftOrbStartPosition = leftOrb.transform.position;
-        rightOrbStartPosition = rightOrb.transform.position;
         CalculateTrail();
+
+        target.transform.position = points[0];
+
+        targetStartPosition = target.transform.position;
     }
 
     public void CalculateTrail()
@@ -139,8 +142,7 @@ public class MovementTrail : MonoBehaviour
     {
         currentTrailSection = 0;
         repetitions = 0;
-        rightOrb.transform.position = rightOrbStartPosition;
-        leftOrb.transform.position = leftOrbStartPosition;
+        target.transform.position = targetStartPosition;
         paused = true;
     }
 
