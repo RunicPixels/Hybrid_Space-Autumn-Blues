@@ -68,6 +68,19 @@ public class MovementManager : MonoBehaviour {
         movements[movementIndex].SetActive(true);
     }
 
+    public void DisableCurrentMovement()
+    {
+        StartCoroutine(DisableCurrentMovementCoRoutine());
+    }
+
+    public IEnumerator DisableCurrentMovementCoRoutine()
+    {
+        parents[movementIndex].DisableParticles();
+        yield return new WaitForSeconds(1);
+
+        movements[movementIndex].SetActive(false);
+    }
+
     public void UnPause()
 	{
 		parents[movementIndex].UnPause();

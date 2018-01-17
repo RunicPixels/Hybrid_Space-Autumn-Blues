@@ -10,13 +10,15 @@ public class StartBreading : MonoBehaviour {
     int drawDepth = -1000; 
     float alpha = 1f;
     int fadeDir = -1;
-    public int curretScene = 1;
+    public int currentScene = 0;
 
     public float startCoundown = 4;
-    public float currentCoundown;
+    public float currentCoundown = 0;
     public Texture2D color;
 
     public bool breathingOn = false;
+
+    
 
     void Awake(){
         DontDestroyOnLoad(this);
@@ -31,44 +33,51 @@ public class StartBreading : MonoBehaviour {
             }
         }
         if (Input.GetKeyDown("1")){
-            curretScene = 1;
+            currentScene = 1;
             StartCoroutine(Fade());
         }
         if (Input.GetKeyDown("2")){
-            curretScene = 2;
+            currentScene = 2;
             StartCoroutine(Fade());
         }
 
         if (Input.GetKeyDown("9")){
-            MovementManager.instance.Pause();
+            if(MovementManager.instance)MovementManager.instance.Pause();
         }
         if (Input.GetKeyDown("8")){
-            MovementManager.instance.UnPause();
+            if(MovementManager.instance)MovementManager.instance.UnPause();
         }
 
         if (currentCoundown > 0){
             currentCoundown = currentCoundown - Time.deltaTime;
         }
-        
+
+        if (Sequence.instance != null){
+            if(Sequence.instance.ProgressToNextScene)
+                StartCoroutine(ProgressToNextScene());
+        }
+
         if (breathingOn){
-            if (curretScene != 3){
-                curretScene = 3;
+            if (currentScene != 3){
+                currentScene = 3;
                 StartCoroutine(Fade());
-                MovementManager.instance.Pause();
+                if(MovementManager.instance)MovementManager.instance.Pause();
             }
         }
         if (breathingOn == false){
-            curretScene = 1;
-            SceneManager.UnloadSceneAsync(3);
+            currentScene = 1;
+            if (SceneManager.GetSceneByBuildIndex(3).isLoaded) {
+                SceneManager.UnloadSceneAsync(3);
+                StartTimer(); // Causes Loadbar not to progress.
+            }
             BeginFade(-1);
-            StartTimer();
             StartCoroutine(StartAni());
         }
     }
 
     IEnumerator Fade(){
         if (currentCoundown <= 0){
-            int c = curretScene;
+            int c = currentScene;
             float fadeTime = BeginFade(1); 
             yield return new WaitForSeconds(fadeTime);
             //SceneManager.LoadScene(c);
@@ -112,9 +121,21 @@ public class StartBreading : MonoBehaviour {
         }
     }
 
+    private IEnumerator ProgressToNextScene()
+    {
+        MovementManager.instance.DisableCurrentMovement();
+        yield return new WaitForSeconds(5f);
+
+        if (currentScene != 2)
+        {
+            currentScene = 2;
+            StartCoroutine(Fade());
+        }
+    }
+
     IEnumerator StartAni(){
         yield return new WaitForSeconds(startCoundown);
-        MovementManager.instance.UnPause();
+        if(MovementManager.instance)MovementManager.instance.UnPause();
     } 
 }
 /*

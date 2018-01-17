@@ -451,11 +451,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   repetitionTrail: 0
   sections: 100
-  paused: 0
+  paused: 1
   reverse: 1
   trailSectionPrefab: {fileID: 1093775595989092, guid: 71f60592e2364aa4ab8fcf2dcb9cb2c7,
     type: 2}
+  target: {fileID: 1278430970447786}
   currentTrailSection: 0
+  targetActive: 0
 --- !u!114 &114582161072122932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -555,11 +557,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   repetitionTrail: 1
   sections: 100
-  paused: 0
+  paused: 1
   reverse: 1
   trailSectionPrefab: {fileID: 1093775595989092, guid: aee9462319994214bb0b9b0f3f1c4994,
     type: 2}
+  target: {fileID: 1335454437192174}
   currentTrailSection: 0
+  targetActive: 0
 --- !u!114 &114940884566622670
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -496,7 +496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd6cbb9223c0d754f8a6a8a52b1c982c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  trail: {fileID: 0}
+  trail: {fileID: 114505740890658224}
   maxDistanceDelta: 0.05
   activeColor:
     serializedVersion: 2
@@ -571,12 +571,11 @@ MonoBehaviour:
   sections: 100
   paused: 0
   reverse: 1
-  targetActive: 0
   trailSectionPrefab: {fileID: 1093775595989092, guid: aee9462319994214bb0b9b0f3f1c4994,
     type: 2}
-  rightOrb: {fileID: 1429428104475224}
-  leftOrb: {fileID: 1972260654886156}
+  target: {fileID: 0}
   currentTrailSection: 0
+  targetActive: 0
 --- !u!114 &114505740890658224
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -592,12 +591,11 @@ MonoBehaviour:
   sections: 100
   paused: 0
   reverse: 1
-  targetActive: 0
   trailSectionPrefab: {fileID: 1093775595989092, guid: aee9462319994214bb0b9b0f3f1c4994,
     type: 2}
-  rightOrb: {fileID: 1429428104475224}
-  leftOrb: {fileID: 1972260654886156}
+  target: {fileID: 1972260654886156}
   currentTrailSection: 0
+  targetActive: 0
 --- !u!114 &114544731772767064
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -620,7 +618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb930fded3c2ae4469b2a9c1552aaedd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftTrail: {fileID: 0}
+  leftTrail: {fileID: 114505740890658224}
   rightTrail: {fileID: 114367026131269684}
   leftTargetParticles: {fileID: 198122661898234726}
   rightTargetParticles: {fileID: 198782382296123916}
@@ -695,7 +693,7 @@ ParticleSystem:
   moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: 750949686
+  randomSeed: 722563591
   InitialModule:
     serializedVersion: 3
     enabled: 1
