@@ -97,7 +97,6 @@ public class StartBreading : MonoBehaviour {
         GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, alpha);
         GUI.depth = drawDepth;
         GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), fadeOutTexture);
-
     }
 
     public float BeginFade(int direction){
@@ -108,12 +107,12 @@ public class StartBreading : MonoBehaviour {
     private void OnLevelWasLoaded(int level){
         BeginFade(-1);
         StartTimer();
+        StartCoroutine(StartAni());
     }
 
     IEnumerator StartAni(){
         yield return new WaitForSeconds(startCoundown);
         MovementManager.instance.UnPause();
-
     }
 }
 /*
