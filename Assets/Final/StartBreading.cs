@@ -10,10 +10,10 @@ public class StartBreading : MonoBehaviour {
     int drawDepth = -1000; 
     float alpha = 1f;
     int fadeDir = -1;
-    public int currentScene = 1;
+    public int currentScene = 0;
 
     public float startCoundown = 4;
-    public float currentCoundown;
+    public float currentCoundown = 0;
     public Texture2D color;
 
     public bool breathingOn = false;
@@ -61,9 +61,9 @@ public class StartBreading : MonoBehaviour {
             currentScene = 1;
             if (SceneManager.GetSceneByBuildIndex(3).isLoaded) {
                 SceneManager.UnloadSceneAsync(3);
+                StartTimer(); // Causes Loadbar not to progress.
             }
             BeginFade(-1);
-            StartTimer();
             StartCoroutine(StartAni());
         }
     }
