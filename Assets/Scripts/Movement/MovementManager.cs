@@ -26,7 +26,6 @@ public class MovementManager : MonoBehaviour {
 		currentMovement = transform.GetChild(0).gameObject;
 
 		parents = new MovementTrailParent[movements.Length];
-		Debug.Log(parents);
 		for(int i = 0; i < movements.Length; i++)
 			parents[i] = movements[i].GetComponent<MovementTrailParent>();
 	}
@@ -49,8 +48,6 @@ public class MovementManager : MonoBehaviour {
 
 	public void UnPause()
 	{
-		Debug.Log(parents);
-		Debug.Log((parents[movementIndex]));
 		parents[movementIndex].UnPause();
 	}
 
