@@ -5,6 +5,124 @@ using UnityEngine.SceneManagement;
 
 public class StartBreading : MonoBehaviour {
 
+    public Texture2D fadeOutTexture;
+    public float fadeSpeed = 1.5f;
+    int drawDepth = -1000; 
+    float alpha = 1f;
+    int fadeDir = -1;
+    public int curretScene = 0;
+
+    public float startCoundown = 4;
+    public float currentCoundown;
+    public Texture2D color;
+
+    public bool breathingOn = false;
+
+    void Awake(){
+        DontDestroyOnLoad(this);
+        
+    }
+
+    private void Update(){
+
+        if (Input.GetKeyDown("b")){
+            if (SceneManager.GetActiveScene().name != "StartScene"){
+                breathingOn = !breathingOn;          
+            }
+        }
+        if (Input.GetKeyDown("1")){
+            curretScene = 2;
+            StartCoroutine(Fade());
+        }
+        if (Input.GetKeyDown("2")){
+            curretScene = 3;
+            StartCoroutine(Fade());
+        }
+
+        if (Input.GetKeyDown("9")){
+            MovementManager.instance.Pause();
+        }
+        if (Input.GetKeyDown("8")){
+            MovementManager.instance.UnPause();
+        }
+
+        if (currentCoundown > 0){
+            currentCoundown = currentCoundown - Time.deltaTime;
+        }
+        
+        if (breathingOn){
+            if (curretScene != 0){
+                curretScene = 0;
+                StartCoroutine(Fade());
+                MovementManager.instance.Pause();
+            }
+        }
+        if (breathingOn == false){
+            curretScene = 2;
+            SceneManager.UnloadSceneAsync(0);
+            BeginFade(-1);
+            StartTimer();
+            StartCoroutine(StartAni());
+        }
+    }
+
+    IEnumerator Fade(){
+        if (currentCoundown <= 0){
+            int c = curretScene;
+            float fadeTime = BeginFade(1); 
+            yield return new WaitForSeconds(fadeTime);
+            //SceneManager.LoadScene(c);
+            if (c == 0){
+                SceneManager.LoadScene(c, LoadSceneMode.Additive);
+                yield return new WaitForEndOfFrame();
+                OnLevelWasLoaded(0);
+            }
+            else{
+                SceneManager.LoadScene(c, LoadSceneMode.Single);
+            }
+        }
+    }
+
+    void StartTimer(){
+        currentCoundown = startCoundown;
+    }
+
+    private void OnGUI(){
+        if (currentCoundown > 0){
+            GUI.DrawTexture(new Rect(0, Screen.height - 10, Screen.width*(currentCoundown/startCoundown), 10), color);
+        }
+
+        alpha += fadeDir * fadeSpeed * Time.deltaTime;  
+        alpha = Mathf.Clamp01(alpha);
+        GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, alpha);
+        GUI.depth = drawDepth;
+        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), fadeOutTexture);
+
+    }
+
+    public float BeginFade(int direction){
+        fadeDir = direction;
+        return (fadeSpeed);
+    }
+
+    private void OnLevelWasLoaded(int level){
+        BeginFade(-1);
+        StartTimer();
+    }
+
+    IEnumerator StartAni(){
+        yield return new WaitForSeconds(startCoundown);
+        MovementManager.instance.UnPause();
+
+    }
+}
+/*
+    using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class StartBreading : MonoBehaviour {
 
     public Texture2D fadeOutTexture;
     public float fadeSpeed = 1.5f;
@@ -127,161 +245,9 @@ public class StartBreading : MonoBehaviour {
             Animator a = an[i] as Animator;
             Debug.Log(a);
             a.enabled = b;
-        }*/
+        }
     }
 
 }
-/*
-    public  bool active = true;
-    List<MeshRenderer> allChildMat = new List<MeshRenderer>();
-    private float fadePerSecond = 2.5f;
-
-    void Start () {
-        int children = transform.childCount;
-        for (int i = 0; i < children; ++i){
-            if (transform.GetChild(i).GetComponent<MeshRenderer>() != null){
-                allChildMat.Add(transform.GetChild(i).GetComponent<MeshRenderer>());
-
-            }
-        }
-    }
-
-    void Update () {
-        if (Input.GetKeyDown("p")){
-            active = !active;
-        }
-
-        if (active){
-            //transform.GetChild(0).gameObject.SetActive(active);
-            Fade();
-        }
-	}
-
-    void Fade(){
-
-        for (int i = 0; i < allChildMat.Count; ++i){
-            //allChildMat[i].material.color = Color.red;
-            var color = allChildMat[i].material.color;
-
-            allChildMat[i].material.color = new Color(color.r, color.g, color.b, color.a - (fadePerSecond * Time.deltaTime));
-            //print("For loop: " + transform.GetChild(i));
-
-        }
-
-
-    }
-
-    using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-
-public class StartBreading : MonoBehaviour {
-
-
-    public Texture2D fadeOutTexture;
-    public float fadeSpeed = 1.5f;
-    int drawDepth = -1000; 
-    float alpha = 1f;
-    int fadeDir = -1;
-    public int curretScene = 0;
-
-    public List<Animator> allAniInScene = new List<Animator>();
-    public float startCoundown = 4;
-    public float currentCoundown;
-    public Texture2D color;
-
-    public bool breathingOn = false;
-
-    void Awake(){
-        DontDestroyOnLoad(this);
-    }
-
-    private void Update(){
-        if (Input.GetKeyDown("b")){
-            if (SceneManager.GetActiveScene().name != "StartScene"){
-                curretScene = 0;
-                StartCoroutine(Fade());             
-            }
-        }
-
-        if (Input.GetKeyDown("1")){
-            curretScene = 2;
-            StartCoroutine(Fade());
-        }
-        if (Input.GetKeyDown("2")){
-            curretScene = 3;
-            StartCoroutine(Fade());
-        }
-        if (currentCoundown > 0){
-            currentCoundown = currentCoundown - Time.deltaTime;
-        }
-    }
-
-    IEnumerator Fade(){
-        int c = curretScene;
-        float fadeTime = BeginFade(1); 
-        yield return new WaitForSeconds(fadeTime);
-        SceneManager.LoadScene(c);
-
-    }
-
-    void StartTimer(){
-        currentCoundown = startCoundown;
-    }
-
-    private void OnGUI(){
-        if (currentCoundown > 0){
-            GUI.DrawTexture(new Rect(0, Screen.height - 10, Screen.width*(currentCoundown/startCoundown), 10), color);
-        }
-
-        alpha += fadeDir * fadeSpeed * Time.deltaTime;  
-        alpha = Mathf.Clamp01(alpha);
-        GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, alpha);
-        GUI.depth = drawDepth;
-        GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), fadeOutTexture);
-
-    }
-
-    public float BeginFade(int direction){
-        fadeDir = direction;
-        return (fadeSpeed);
-    }
-
-    private void OnLevelWasLoaded(int level){
-        BeginFade(-1);
-        StartTimer();
-        StartCoroutine(StartAni(false));
-    }
-
-    IEnumerator StartAni(bool b){
-        object[] an = FindObjectsOfType(typeof(Animator));
-        foreach (var item in an){
-            if (item.ToString().Contains("RightHand") || item.ToString().Contains("Lefthand") || item.ToString().Contains("breathing")){
-                allAniInScene.Add(item as Animator);
-            }
-        }
-        yield return new WaitForEndOfFrame();
-        for (int i = 0; i < allAniInScene.Count; i++){
-            allAniInScene[i].enabled = false;
-        }
-
-        yield return new WaitForSeconds(startCoundown);
-        for (int i = 0; i < allAniInScene.Count; i++){
-            allAniInScene[i].enabled = true;
-        }
-        allAniInScene.Clear();
-  
-
-        
-        yield return new WaitForEndOfFrame();
-        for (int i = 0; i < an.Length; i++){
-            Debug.Log(an.Length);
-            Animator a = an[i] as Animator;
-            Debug.Log(a);
-            a.enabled = b;
-        }
-    }
-
 }
 }*/
