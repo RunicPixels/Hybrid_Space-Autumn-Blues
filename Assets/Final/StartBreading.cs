@@ -17,14 +17,12 @@ public class StartBreading : MonoBehaviour {
     public Texture2D color;
 
     public bool breathingOn = false;
-
-    
+       
 
     void Awake(){
-        DontDestroyOnLoad(this);
-        
+        DontDestroyOnLoad(this);       
     }
-    //sequ progress
+
     private void Update(){
 
         if (Input.GetKeyDown("b")){
@@ -41,8 +39,14 @@ public class StartBreading : MonoBehaviour {
             StartCoroutine(Fade());
         }
 
+        if (Input.GetKeyDown("5")){
+            BeginFade(1);
+
+            StartCoroutine(Fade());
+        }
+
         if (Input.GetKeyDown("9")){
-            if(MovementManager.instance)MovementManager.instance.Pause();
+            if (MovementManager.instance)MovementManager.instance.Pause();
         }
         if (Input.GetKeyDown("8")){
             if(MovementManager.instance)MovementManager.instance.UnPause();
@@ -64,7 +68,7 @@ public class StartBreading : MonoBehaviour {
                 if(MovementManager.instance)MovementManager.instance.Pause();
             }
         }
-        if (breathingOn == false){
+        if (breathingOn == false && SceneManager.GetSceneByBuildIndex(3).isLoaded){
             currentScene = 1;
             if (SceneManager.GetSceneByBuildIndex(3).isLoaded) {
                 SceneManager.UnloadSceneAsync(3);
