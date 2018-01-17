@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 3dc2c9ebc6c2bd64db19b671ef0a8bd1
 timeCreated: 1516204387
+=======
+guid: 64156aa0a209792478f9d81aeec54bb4
+timeCreated: 1516204345
+>>>>>>> b0a6010141e2f980b9f6fd591a1dc1732b5c9955
 licenseType: Free
 TrueTypeFontImporter:
   externalObjects: {}
@@ -14,7 +19,11 @@ TrueTypeFontImporter:
   fontNames:
   - Oxygen
   fallbackFontReferences:
+<<<<<<< HEAD
   - {fileID: 12800000, guid: 0e7ccf26c2f998a47b0a2ccafaa66b3f, type: 3}
+=======
+  - {fileID: 12800000, guid: 5a79410e6940b824f9b665a57abf11f3, type: 3}
+>>>>>>> b0a6010141e2f980b9f6fd591a1dc1732b5c9955
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
