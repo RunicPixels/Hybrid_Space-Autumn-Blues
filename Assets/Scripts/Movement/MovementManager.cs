@@ -13,7 +13,6 @@ public class MovementManager : MonoBehaviour {
 	public GameObject[] movements;
 
 	private MovementTrailParent[] parents;
-
     private int movementIndex = 0, repetitions = -1;
 	private GameObject currentMovement;
 

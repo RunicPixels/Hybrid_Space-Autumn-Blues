@@ -10,7 +10,7 @@ public class StartBreading : MonoBehaviour {
     int drawDepth = -1000; 
     float alpha = 1f;
     int fadeDir = -1;
-    public int curretScene = 0;
+    public int curretScene = 1;
 
     public float startCoundown = 4;
     public float currentCoundown;
@@ -31,11 +31,11 @@ public class StartBreading : MonoBehaviour {
             }
         }
         if (Input.GetKeyDown("1")){
-            curretScene = 2;
+            curretScene = 1;
             StartCoroutine(Fade());
         }
         if (Input.GetKeyDown("2")){
-            curretScene = 3;
+            curretScene = 2;
             StartCoroutine(Fade());
         }
 
@@ -51,15 +51,15 @@ public class StartBreading : MonoBehaviour {
         }
         
         if (breathingOn){
-            if (curretScene != 0){
-                curretScene = 0;
+            if (curretScene != 3){
+                curretScene = 3;
                 StartCoroutine(Fade());
                 MovementManager.instance.Pause();
             }
         }
         if (breathingOn == false){
-            curretScene = 2;
-            SceneManager.UnloadSceneAsync(0);
+            curretScene = 1;
+            SceneManager.UnloadSceneAsync(3);
             BeginFade(-1);
             StartTimer();
             StartCoroutine(StartAni());
@@ -72,10 +72,10 @@ public class StartBreading : MonoBehaviour {
             float fadeTime = BeginFade(1); 
             yield return new WaitForSeconds(fadeTime);
             //SceneManager.LoadScene(c);
-            if (c == 0){
+            if (c == 3){
                 SceneManager.LoadScene(c, LoadSceneMode.Additive);
                 yield return new WaitForEndOfFrame();
-                OnLevelWasLoaded(0);
+                OnLevelWasLoaded(3);
             }
             else{
                 SceneManager.LoadScene(c, LoadSceneMode.Single);
@@ -97,7 +97,6 @@ public class StartBreading : MonoBehaviour {
         GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, alpha);
         GUI.depth = drawDepth;
         GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), fadeOutTexture);
-
     }
 
     public float BeginFade(int direction){
@@ -108,12 +107,14 @@ public class StartBreading : MonoBehaviour {
     private void OnLevelWasLoaded(int level){
         BeginFade(-1);
         StartTimer();
+        if (breathingOn == false){
+            StartCoroutine(StartAni());
+        }
     }
 
     IEnumerator StartAni(){
         yield return new WaitForSeconds(startCoundown);
         MovementManager.instance.UnPause();
-
     }
 }
 /*

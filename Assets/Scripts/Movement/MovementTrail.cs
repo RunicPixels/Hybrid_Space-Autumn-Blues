@@ -13,9 +13,9 @@ public class MovementTrail : MonoBehaviour
     [HideInInspector()]
     public int currentTrailNumber = 1, currentTrailSection = 0;
 
+    private int repetitions = 0;
     private TrailSection[] trailSections;
     private Vector2[] points;
-    private int repetitions = -1;
     private List<ParticleSystem> particleSystems = new List<ParticleSystem>();
 
     // Use this for initialization
@@ -41,7 +41,7 @@ public class MovementTrail : MonoBehaviour
         for (int k = 0; k <= sections; k++)
         {
             float t = (float)k / sections;
-
+            
             Vector2 point = CalculatePoint(t, p);
 
             points[k] = point;
@@ -57,7 +57,6 @@ public class MovementTrail : MonoBehaviour
 
     public Vector3 NextTrailSection(Vector3 currentPosition)
     {
-
         if(paused)
             return points[currentTrailSection];
 
