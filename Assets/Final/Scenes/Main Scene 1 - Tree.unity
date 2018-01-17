@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6592c6f9bf3db8249b8c0f395ef6d7f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sequenceLength: 10
+  sequenceLength: 30
   progress: 0
   active: 1
   mainCamera: {fileID: 2057590718}
