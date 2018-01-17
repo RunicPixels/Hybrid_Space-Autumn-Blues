@@ -57,6 +57,9 @@ public class MovementManager : MonoBehaviour {
         yield return new WaitForSeconds(1);
         Destroy(movements[movementIndex]);
         movementIndex++;
+        if (movementIndex == movements.Length)
+            movementIndex = 0;
+
         movements[movementIndex].SetActive(true);
     }
 

@@ -115,7 +115,7 @@ public class StartBreading : MonoBehaviour {
     IEnumerator StartAni(){
         yield return new WaitForSeconds(startCoundown);
         MovementManager.instance.UnPause();
-    }
+    } 
 }
 /*
     using System.Collections;
