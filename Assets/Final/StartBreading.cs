@@ -15,9 +15,11 @@ public class StartBreading : MonoBehaviour {
     public float startCoundown = 4;
     public float currentCoundown = 0;
     public Texture2D color;
+    public Texture2D colorBreathing;
+    public Animator breathing_anim;
 
     public bool breathingOn = false;
-       
+    public bool alpha0 = true;   
 
     void Awake(){
         DontDestroyOnLoad(this);       
@@ -26,7 +28,7 @@ public class StartBreading : MonoBehaviour {
     private void Update(){
 
         if (Input.GetKeyDown("b")){
-            if (SceneManager.GetActiveScene().name != "StartScene"){
+            if (SceneManager.GetActiveScene().name != "StartScene" && currentCoundown <= 0){
                 breathingOn = !breathingOn;          
             }
         }
@@ -36,12 +38,6 @@ public class StartBreading : MonoBehaviour {
         }
         if (Input.GetKeyDown("2")){
             currentScene = 2;
-            StartCoroutine(Fade());
-        }
-
-        if (Input.GetKeyDown("5")){
-            BeginFade(1);
-
             StartCoroutine(Fade());
         }
 
@@ -69,14 +65,18 @@ public class StartBreading : MonoBehaviour {
             }
         }
         if (breathingOn == false && SceneManager.GetSceneByBuildIndex(3).isLoaded){
-            currentScene = 1;
-            if (SceneManager.GetSceneByBuildIndex(3).isLoaded) {
-                SceneManager.UnloadSceneAsync(3);
-                StartTimer(); // Causes Loadbar not to progress.
-            }
-            BeginFade(-1);
-            StartCoroutine(StartAni());
+            StartCoroutine(FadeBreath());
         }
+    }
+
+    IEnumerator FadeBreath(){
+        float fadeTime = BeginFade(1);
+        yield return new WaitForSeconds(fadeTime);
+        currentScene = 1;
+        SceneManager.UnloadSceneAsync(3);
+        StartTimer();
+        StartCoroutine(StartAni());
+        BeginFade(-1);
     }
 
     IEnumerator Fade(){
@@ -102,13 +102,22 @@ public class StartBreading : MonoBehaviour {
 
     private void OnGUI(){
         if (currentCoundown > 0){
-            GUI.DrawTexture(new Rect(0, Screen.height - 10, Screen.width*(currentCoundown/startCoundown), 10), color);
+            if (SceneManager.GetSceneByBuildIndex(3).isLoaded){
+                GUI.DrawTexture(new Rect(0, Screen.height - 10, Screen.width * (currentCoundown / startCoundown), 10), colorBreathing);
+            }
+            else{
+                GUI.DrawTexture(new Rect(0, Screen.height - 10, Screen.width*(currentCoundown/startCoundown), 10), color);
+            }
         }
 
         alpha += fadeDir * fadeSpeed * Time.deltaTime;  
         alpha = Mathf.Clamp01(alpha);
-        Debug.Log(alpha);
-
+        if (alpha == 0){
+            alpha0 = true;
+        }
+        else{
+            alpha0 = false;
+        }
         GUI.color = new Color(GUI.color.r, GUI.color.g, GUI.color.b, alpha);
         GUI.depth = drawDepth;
         GUI.DrawTexture(new Rect(0, 0, Screen.width, Screen.height), fadeOutTexture);
@@ -122,9 +131,7 @@ public class StartBreading : MonoBehaviour {
     private void OnLevelWasLoaded(int level){
         BeginFade(-1);
         StartTimer();
-        if (breathingOn == false){
-            StartCoroutine(StartAni());
-        }
+        StartCoroutine(StartAni());
     }
     
     private IEnumerator ProgressToNextScene(){
@@ -139,7 +146,13 @@ public class StartBreading : MonoBehaviour {
 
     IEnumerator StartAni(){
         yield return new WaitForSeconds(startCoundown);
-        if(MovementManager.instance)MovementManager.instance.UnPause();
+        if (SceneManager.GetSceneByBuildIndex(3).isLoaded){
+            breathing_anim = GameObject.Find("breathing_anim").GetComponent<Animator>();
+            breathing_anim.SetBool("start", true);
+        }
+        else{
+            if(MovementManager.instance)MovementManager.instance.UnPause();
+        }
     } 
 }
 /*

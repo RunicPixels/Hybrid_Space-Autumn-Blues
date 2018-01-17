@@ -282,6 +282,7 @@ GameObject:
   - component: {fileID: 237442880}
   - component: {fileID: 237442879}
   - component: {fileID: 237442878}
+  - component: {fileID: 237442877}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -289,6 +290,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &237442877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 237442876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ad47f00bc96f4b48af3663e95d5e4f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bewegingen: {fileID: 1212707888}
 --- !u!114 &237442878
 MonoBehaviour:
   m_ObjectHideFlags: 0
