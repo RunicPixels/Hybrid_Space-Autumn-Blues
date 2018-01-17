@@ -55,11 +55,15 @@ public class MovementManager : MonoBehaviour {
     {
         parents[movementIndex].DisableParticles();
         yield return new WaitForSeconds(1);
-        Destroy(movements[movementIndex]);
+        
+        movements[movementIndex].SetActive(false);
+
         movementIndex++;
         if (movementIndex == movements.Length)
             movementIndex = 0;
 
+        parents[movementIndex].EnableParticles();
+        parents[movementIndex].ResetTrails();
         movements[movementIndex].SetActive(true);
     }
 

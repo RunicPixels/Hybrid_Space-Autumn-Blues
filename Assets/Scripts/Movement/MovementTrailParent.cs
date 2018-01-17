@@ -8,6 +8,8 @@ public class MovementTrailParent : MonoBehaviour {
 
     public ParticleSystem leftTargetParticles, rightTargetParticles;
 
+    private float orbLifetime = 0.2f;
+
 	public void Pause()
 	{
 		leftTrail.paused = true;
@@ -20,6 +22,12 @@ public class MovementTrailParent : MonoBehaviour {
 		rightTrail.paused = false;
 	}
 
+    public void ResetTrails()
+    {
+        leftTrail.ResetTrail();
+        rightTrail.ResetTrail();
+    }
+
     public void DisableParticles()
     {
         leftTrail.DisableParticles();
@@ -29,5 +37,16 @@ public class MovementTrailParent : MonoBehaviour {
         main.startLifetime = 0;
         main = rightTargetParticles.main;
         main.startLifetime = 0;
+    }
+
+    public void EnableParticles()
+    {
+        leftTrail.EnableParticles();
+        rightTrail.EnableParticles();
+
+        var main = leftTargetParticles.main;
+        main.startLifetime = orbLifetime;
+        main = rightTargetParticles.main;
+        main.startLifetime = orbLifetime;
     }
 }

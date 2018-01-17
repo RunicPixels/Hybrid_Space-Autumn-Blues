@@ -8,20 +8,24 @@ public class MovementTrail : MonoBehaviour
     public bool repetitionTrail = false;
     public int sections;
     public bool paused = false, reverse = false;
-    public GameObject trailSectionPrefab;
+    public GameObject trailSectionPrefab, rightOrb, leftOrb;
 
     [HideInInspector()]
     public int currentTrailSection = 0;
 
+    private float particleLifetime = 1;
     private int repetitions = 0;
     private bool isReversing = false;
     private TrailSection[] trailSections;
     private Vector2[] points;
+    private Vector3 leftOrbStartPosition, rightOrbStartPosition;
     private List<ParticleSystem> particleSystems = new List<ParticleSystem>();
 
     // Use this for initialization
     protected virtual void Start()
     {
+        leftOrbStartPosition = leftOrb.transform.position;
+        rightOrbStartPosition = rightOrb.transform.position;
         CalculateTrail();
     }
 
@@ -69,7 +73,6 @@ public class MovementTrail : MonoBehaviour
                 if (currentTrailSection == -1)
                 {
                     currentTrailSection = 0;
-                    EndRepetition();
                     isReversing = false;
                 }
             }
@@ -120,6 +123,24 @@ public class MovementTrail : MonoBehaviour
             var main = ps.main;
             main.startLifetime = 0;
         }
+    }
+
+    public void EnableParticles()
+    {
+        foreach (ParticleSystem ps in particleSystems)
+        {
+            var main = ps.main;
+            main.startLifetime = particleLifetime;
+        }
+    }
+
+    public void ResetTrail()
+    {
+        currentTrailSection = 0;
+        repetitions = 0;
+        rightOrb.transform.position = rightOrbStartPosition;
+        leftOrb.transform.position = leftOrbStartPosition;
+        paused = true;
     }
 
     /* Recursive method implementing de Casteljau's algorithm to calculate a single point on a curve described by n points */
