@@ -12,6 +12,7 @@ public class MovementTrailParent : MonoBehaviour {
 
 	public void Pause()
 	{
+        Debug.Log("pauseparent");
 		leftTrail.paused = true;
 		rightTrail.paused = true;
 	}
@@ -20,6 +21,7 @@ public class MovementTrailParent : MonoBehaviour {
 	{
 		leftTrail.paused = false;
 		rightTrail.paused = false;
+        Debug.Log("unpause");
 	}
 
     public void ResetTrails()

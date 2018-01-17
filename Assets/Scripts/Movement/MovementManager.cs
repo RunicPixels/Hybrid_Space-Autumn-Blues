@@ -6,9 +6,6 @@ public class MovementManager : MonoBehaviour {
 
     public static MovementManager instance;
 
-	[HideInInspector()]
-	public bool movementActive = false;
-
     public Sequence sequence;
 	public GameObject[] movements;
 
@@ -40,8 +37,7 @@ public class MovementManager : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.T))
             UnPause();
         
-        movementActive = parents[movementIndex].BothTargetsActive;
-        if (movementActive)
+        if (parents[movementIndex].BothTargetsActive)
 			sequence.active = true;
 		else
 			sequence.active = false;
@@ -89,5 +85,6 @@ public class MovementManager : MonoBehaviour {
 	public void Pause()
 	{
 		parents[movementIndex].Pause();
-	}
+        Debug.Log("pausemanager");
+    }
 }

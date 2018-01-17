@@ -144,6 +144,7 @@ public class MovementTrail : MonoBehaviour
         repetitions = 0;
         target.transform.position = targetStartPosition;
         paused = true;
+        Debug.Log("reset");
     }
 
     /* Recursive method implementing de Casteljau's algorithm to calculate a single point on a curve described by n points */
