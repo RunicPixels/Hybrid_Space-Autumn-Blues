@@ -27,9 +27,8 @@ public class Orb : MonoBehaviour {
     {
         if (collision.tag == "Hand")
         {
-            Debug.Log("collide");
             MovementManager.instance.UnPause();
-            MovementManager.instance.movementActive = true;
+            trail.targetActive = true;
             main.startColor = activeColor;
         }
     }
@@ -38,7 +37,7 @@ public class Orb : MonoBehaviour {
     {
         if (collision.tag == "Hand")
         {
-            MovementManager.instance.movementActive = false;
+            trail.targetActive = false;
             main.startColor = inactiveColor;
         }
     }

@@ -8,6 +8,7 @@ public class MovementTrail : MonoBehaviour
     public bool repetitionTrail = false;
     public int sections;
     public bool paused = false, reverse = false;
+    public bool targetActive = false;
     public GameObject trailSectionPrefab, rightOrb, leftOrb;
 
     [HideInInspector()]

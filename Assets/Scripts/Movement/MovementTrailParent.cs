@@ -28,6 +28,11 @@ public class MovementTrailParent : MonoBehaviour {
         rightTrail.ResetTrail();
     }
 
+    public bool BothTargetsActive
+    {
+        get { return leftTrail.targetActive && rightTrail.targetActive; }
+    }
+
     public void DisableParticles()
     {
         leftTrail.DisableParticles();
