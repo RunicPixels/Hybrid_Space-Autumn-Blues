@@ -126,7 +126,7 @@ public class StartBreading : MonoBehaviour {
         MovementManager.instance.DisableCurrentMovement();
         yield return new WaitForSeconds(5f);
 
-        if (currentScene != 2)
+        if (currentScene == 1)
         {
             currentScene = 2;
             StartCoroutine(Fade());
