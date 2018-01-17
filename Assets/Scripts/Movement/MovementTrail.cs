@@ -5,9 +5,9 @@ using UnityEngine;
 // [ExecuteInEditMode]
 public class MovementTrail : MonoBehaviour
 {
-
+    public bool repetitionTrail = false;
     public int sections;
-    public bool paused = true;
+    public bool paused = false;
     public GameObject trailSectionPrefab;
 
     [HideInInspector()]
@@ -15,10 +15,11 @@ public class MovementTrail : MonoBehaviour
 
     private TrailSection[] trailSections;
     private Vector2[] points;
-    private int repetitions = 0;
+    private int repetitions = -1;
+    private List<ParticleSystem> particleSystems = new List<ParticleSystem>();
 
     // Use this for initialization
-    void Start()
+    protected virtual void Start()
     {
         CalculateTrail();
     }
@@ -41,7 +42,7 @@ public class MovementTrail : MonoBehaviour
         {
             float t = (float)k / sections;
 
-            Vector2 point = CalculatePointOnCurve(t, p);
+            Vector2 point = CalculatePoint(t, p);
 
             points[k] = point;
 
@@ -56,6 +57,7 @@ public class MovementTrail : MonoBehaviour
 
     public Vector3 NextTrailSection(Vector3 currentPosition)
     {
+
         if(paused)
             return points[currentTrailSection];
 
@@ -65,8 +67,14 @@ public class MovementTrail : MonoBehaviour
             if (currentTrailSection == points.Length)
             {
                 currentTrailSection = 0;
-                repetitions++;
-                MovementManager.instance.SetRepetitions(repetitions);
+                if (repetitionTrail)
+                {
+                    repetitions++;
+                    if (repetitions == 3)
+                    {
+                        MovementManager.instance.NextMovement();
+                    }
+                }
             }
             return points[currentTrailSection];
         }
@@ -78,10 +86,20 @@ public class MovementTrail : MonoBehaviour
     {
         GameObject part = (GameObject)Instantiate(trailSectionPrefab, points[k], Quaternion.identity);
         part.transform.parent = transform;
+        particleSystems.Add(part.transform.GetChild(0).GetComponent<ParticleSystem>());
+    }
+
+    public void DisableParticles()
+    {
+        foreach(ParticleSystem ps in particleSystems)
+        {
+            var main = ps.main;
+            main.startLifetime = 0;
+        }
     }
 
     /* Recursive method implementing de Casteljau's algorithm to calculate a single point on a curve described by n points */
-    private Vector2 CalculatePointOnCurve(float t, Vector2[] points)
+    protected virtual Vector2 CalculatePoint(float t, Vector2[] points)
     {
         Vector2[] newPoints = new Vector2[points.Length - 1];
 
@@ -89,7 +107,7 @@ public class MovementTrail : MonoBehaviour
             newPoints[i - 1] = CalculatePointOnLine(t, points[i - 1], points[i]);
 
         if (newPoints.Length > 1)
-            return CalculatePointOnCurve(t, newPoints);
+            return CalculatePoint(t, newPoints);
         else
             return newPoints[0];
     }
@@ -101,8 +119,8 @@ public class MovementTrail : MonoBehaviour
         result.y = pointA.y - ((pointA.y - pointB.y) * t);
         return result;
     }
-    
-    private void Update()
+
+    protected virtual void Update()
     {
     }
 }

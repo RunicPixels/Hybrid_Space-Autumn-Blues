@@ -6,6 +6,8 @@ public class MovementTrailParent : MonoBehaviour {
 
 	public MovementTrail leftTrail, rightTrail;
 
+    public ParticleSystem leftTargetParticles, rightTargetParticles;
+
 	public void Pause()
 	{
 		leftTrail.paused = true;
@@ -17,4 +19,15 @@ public class MovementTrailParent : MonoBehaviour {
 		leftTrail.paused = false;
 		rightTrail.paused = false;
 	}
+
+    public void DisableParticles()
+    {
+        leftTrail.DisableParticles();
+        rightTrail.DisableParticles();
+
+        var main = leftTargetParticles.main;
+        main.startLifetime = 0;
+        main = rightTargetParticles.main;
+        main.startLifetime = 0;
+    }
 }

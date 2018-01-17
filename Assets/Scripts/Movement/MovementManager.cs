@@ -14,7 +14,7 @@ public class MovementManager : MonoBehaviour {
 
 	private MovementTrailParent[] parents;
 
-    private int movementIndex = 0, repetitions = 0;
+    private int movementIndex = 0, repetitions = -1;
 	private GameObject currentMovement;
 
     void Awake()
@@ -47,23 +47,21 @@ public class MovementManager : MonoBehaviour {
 			sequence.active = false;
 	}
 
-    public void SetRepetitions(int rep)
-    {
-        repetitions = rep;
-        if(repetitions == 3)
-        {
-            NextMovement();
-        }
-    }
-
 	public void NextMovement()
 	{
-        repetitions = 0;
-		movementIndex++;
-        currentMovement = (GameObject)Instantiate(movements[movementIndex], Vector3.zero, Quaternion.identity, this.transform);
-	}
+        StartCoroutine(NextMovementCoRoutine());
+    }
 
-	public void UnPause()
+    private IEnumerator NextMovementCoRoutine()
+    {
+        parents[movementIndex].DisableParticles();
+        yield return new WaitForSeconds(0.5f);
+        Destroy(movements[movementIndex]);
+        movementIndex++;
+        movements[movementIndex].SetActive(true);
+    }
+
+    public void UnPause()
 	{
 		parents[movementIndex].UnPause();
 	}
