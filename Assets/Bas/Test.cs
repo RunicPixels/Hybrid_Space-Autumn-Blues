@@ -100,13 +100,14 @@ public class Test : MonoBehaviour {
 
     private GameObject CreateBodyObject( ulong id ) {
         GameObject body = new GameObject("Body:" + id);
+        DontDestroyOnLoad(body);
         body.transform.position = new Vector3(0, 12, -22);
 
         for (Kinect.JointType jt = Kinect.JointType.SpineBase; jt <= Kinect.JointType.ThumbRight; jt++) {
             GameObject jointObj = GameObject.Instantiate(TestAura);
             if (jt == Kinect.JointType.HandRight || jt == Kinect.JointType.HandLeft) {
                 jointObj.tag = "Hand";
-                jointObj.transform.localScale = new Vector3(3f, 3f, 3f);
+                jointObj.transform.localScale = new Vector3(1.8f, 1.8f, 1.8f);
             }
             else {
                 jointObj.transform.localScale = new Vector3(0.01f, 0.01f, 0.01f);
@@ -120,7 +121,6 @@ public class Test : MonoBehaviour {
             jointObj.name = jt.ToString();
             jointObj.transform.parent = body.transform;
         }
-
         return body;
     }
 

@@ -11,8 +11,8 @@ public class SpriteToCameraRotator : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        transform.rotation = Quaternion.LookRotation(-camera.transform.forward);
-        transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
+        //transform.rotation = Quaternion.LookRotation(-camera.transform.forward);
+        //transform.rotation = new Quaternion(0, transform.rotation.y, 0, transform.rotation.w);
 
     }
 }
