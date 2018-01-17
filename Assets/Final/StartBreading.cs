@@ -24,7 +24,7 @@ public class StartBreading : MonoBehaviour {
         DontDestroyOnLoad(this);
         
     }
-
+    //sequ progress
     private void Update(){
 
         if (Input.GetKeyDown("b")){
@@ -120,7 +120,7 @@ public class StartBreading : MonoBehaviour {
             StartCoroutine(StartAni());
         }
     }
-
+    
     private IEnumerator ProgressToNextScene()
     {
         MovementManager.instance.DisableCurrentMovement();
