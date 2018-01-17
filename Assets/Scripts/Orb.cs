@@ -27,6 +27,7 @@ public class Orb : MonoBehaviour {
     {
         if (collision.tag == "Hand")
         {
+            Debug.Log("collide");
             MovementManager.instance.UnPause();
             MovementManager.instance.movementActive = true;
             main.startColor = activeColor;

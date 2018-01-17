@@ -8,12 +8,13 @@ public class MovementManager : MonoBehaviour {
 
 	[HideInInspector()]
 	public bool movementActive = false;
+
     public Sequence sequence;
 	public GameObject[] movements;
 
 	private MovementTrailParent[] parents;
-    
-	private int movementIndex = 0;
+
+    private int movementIndex = 0, repetitions = 0;
 	private GameObject currentMovement;
 
     void Awake()
@@ -35,15 +36,31 @@ public class MovementManager : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.E))
 			NextMovement();
 
-		if(movementActive)
+        if (Input.GetKeyDown(KeyCode.R))
+            Pause();
+        if (Input.GetKeyDown(KeyCode.T))
+            UnPause();
+
+            if (movementActive)
 			sequence.active = true;
 		else
 			sequence.active = false;
 	}
+
+    public void SetRepetitions(int rep)
+    {
+        repetitions = rep;
+        if(repetitions == 3)
+        {
+            NextMovement();
+        }
+    }
+
 	public void NextMovement()
 	{
+        repetitions = 0;
 		movementIndex++;
-		currentMovement = (GameObject)Instantiate(movements[movementIndex], Vector3.zero, Quaternion.identity, this.transform);
+        currentMovement = (GameObject)Instantiate(movements[movementIndex], Vector3.zero, Quaternion.identity, this.transform);
 	}
 
 	public void UnPause()

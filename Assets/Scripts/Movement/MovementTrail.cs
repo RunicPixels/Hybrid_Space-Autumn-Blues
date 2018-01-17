@@ -15,6 +15,7 @@ public class MovementTrail : MonoBehaviour
 
     private TrailSection[] trailSections;
     private Vector2[] points;
+    private int repetitions = 0;
 
     // Use this for initialization
     void Start()
@@ -61,8 +62,12 @@ public class MovementTrail : MonoBehaviour
         if (Vector3.Distance(points[currentTrailSection], currentPosition) <= 0.01f)
         {
             currentTrailSection++;
-            if(currentTrailSection == points.Length)
+            if (currentTrailSection == points.Length)
+            {
                 currentTrailSection = 0;
+                repetitions++;
+                MovementManager.instance.SetRepetitions(repetitions);
+            }
             return points[currentTrailSection];
         }
         else
