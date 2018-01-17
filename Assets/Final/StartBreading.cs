@@ -120,13 +120,13 @@ public class StartBreading : MonoBehaviour {
             StartCoroutine(StartAni());
         }
     }
-
+    
     private IEnumerator ProgressToNextScene()
     {
         MovementManager.instance.DisableCurrentMovement();
         yield return new WaitForSeconds(5f);
 
-        if (currentScene != 2)
+        if (currentScene == 1)
         {
             currentScene = 2;
             StartCoroutine(Fade());
