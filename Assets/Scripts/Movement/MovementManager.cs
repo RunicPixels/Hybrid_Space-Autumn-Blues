@@ -54,7 +54,7 @@ public class MovementManager : MonoBehaviour {
     private IEnumerator NextMovementCoRoutine()
     {
         parents[movementIndex].DisableParticles();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1);
         Destroy(movements[movementIndex]);
         movementIndex++;
         movements[movementIndex].SetActive(true);

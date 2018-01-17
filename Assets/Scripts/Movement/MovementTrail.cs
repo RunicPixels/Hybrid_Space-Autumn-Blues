@@ -7,13 +7,14 @@ public class MovementTrail : MonoBehaviour
 {
     public bool repetitionTrail = false;
     public int sections;
-    public bool paused = false;
+    public bool paused = false, reverse = false;
     public GameObject trailSectionPrefab;
 
     [HideInInspector()]
-    public int currentTrailNumber = 1, currentTrailSection = 0;
+    public int currentTrailSection = 0;
 
     private int repetitions = 0;
+    private bool isReversing = false;
     private TrailSection[] trailSections;
     private Vector2[] points;
     private List<ParticleSystem> particleSystems = new List<ParticleSystem>();
@@ -52,7 +53,7 @@ public class MovementTrail : MonoBehaviour
             InstantiateSection(k);
         }
 
-        currentTrailSection = points.Length - 1;
+        currentTrailSection = 0;
     }
 
     public Vector3 NextTrailSection(Vector3 currentPosition)
@@ -62,23 +63,47 @@ public class MovementTrail : MonoBehaviour
 
         if (Vector3.Distance(points[currentTrailSection], currentPosition) <= 0.01f)
         {
-            currentTrailSection++;
-            if (currentTrailSection == points.Length)
+            if(isReversing)
             {
-                currentTrailSection = 0;
-                if (repetitionTrail)
+                currentTrailSection--;
+                if (currentTrailSection == -1)
                 {
-                    repetitions++;
-                    if (repetitions == 3)
-                    {
-                        MovementManager.instance.NextMovement();
-                    }
+                    currentTrailSection = 0;
+                    EndRepetition();
+                    isReversing = false;
                 }
             }
+            else
+            {
+                currentTrailSection++;
+                if (currentTrailSection == points.Length)
+                {
+                    currentTrailSection = points.Length - 1;
+                    EndRepetition();
+                    if (reverse)
+                        isReversing = true;
+
+                }
+            }
+
             return points[currentTrailSection];
         }
         else
             return points[currentTrailSection];
+    }
+
+    private void EndRepetition()
+    {
+        if(!reverse)
+            currentTrailSection = 0;
+        if (repetitionTrail)
+        {
+            repetitions++;
+            if (repetitions == 3)
+            {
+                MovementManager.instance.NextMovement();
+            }
+        }
     }
 
     private void InstantiateSection(int k)
