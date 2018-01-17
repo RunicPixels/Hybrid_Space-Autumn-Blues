@@ -22,7 +22,7 @@ public class StartBreading : MonoBehaviour {
         DontDestroyOnLoad(this);
         
     }
-
+    //sequ progress
     private void Update(){
 
         if (Input.GetKeyDown("b")){
