@@ -67,6 +67,14 @@ public class StartBreading : MonoBehaviour {
         if (breathingOn == false && SceneManager.GetSceneByBuildIndex(3).isLoaded){
             StartCoroutine(FadeBreath());
         }
+        if (SceneManager.GetSceneByBuildIndex(2).isLoaded && currentCoundown <= 0)
+        {
+            GameObject rt = GameObject.Find("RightTarget");
+            rt.GetComponent<Orb>().enabled = true;
+            GameObject lt = GameObject.Find("LeftTarget");
+            lt.GetComponent<Orb>().enabled = true;
+        }
+
     }
 
     IEnumerator FadeBreath(){
@@ -132,6 +140,13 @@ public class StartBreading : MonoBehaviour {
         BeginFade(-1);
         StartTimer();
         StartCoroutine(StartAni());
+        if (level == 2){
+            Debug.Log("dsa");
+            GameObject rt = GameObject.Find("RightTarget");
+            rt.GetComponent<Orb>().enabled = false;
+            GameObject lt = GameObject.Find("LeftTarget");
+            lt.GetComponent<Orb>().enabled = false;
+        }
     }
     
     private IEnumerator ProgressToNextScene(){
