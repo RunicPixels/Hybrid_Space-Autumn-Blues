@@ -11,6 +11,7 @@ public class StartBreading : MonoBehaviour {
     float alpha = 1.0f;
     int fadeDir = -1;
     public int currentScene = 0;
+    public bool startSceneOne = false;
 
     public float startCoundown = 4;
     public float currentCoundown = 0;
@@ -32,7 +33,8 @@ public class StartBreading : MonoBehaviour {
                 breathingOn = !breathingOn;          
             }
         }
-        if (Input.GetKeyDown("1")){
+        if (Input.GetKeyDown("1") || startSceneOne){
+            startSceneOne = false;
             currentScene = 1;
             StartCoroutine(Fade());
         }
